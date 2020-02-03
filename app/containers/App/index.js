@@ -166,9 +166,8 @@ import GlobalStyle from '../../global-styles';
 import CalendarWidget from 'components/Calendar/Calendar';
 import Logo from 'components/Logo/Logo';
 import LeftContainer from 'components/LeftContainerProfile';
-// // import MainActionContainer from 'components/MainActionContainer';
 // // import withProgressBar from 'components/ProgressBar';
-// // import MobileMenu from 'components/MenuMobile/MenuMobile';
+import MobileMenu from 'components/MenuMobile/MenuMobile';
 import SearchBar from 'components/SearchBar/SearchBar';
 // // import FeatureWidget from 'components/FeaturesNav/FeaturesNav';
 import LanguageOption from 'components/Language/LanguageOption';
@@ -220,8 +219,7 @@ export default function App() {
       <MobileWrapper>
         <CalendarWidget />
         {/* <FeatureWidget /> */}
-        {/* <LanguageOption /> */}
-        {/* <MobileMenu /> */}
+        <MobileMenu />
         <LeftContainer />
         <LanguageOption />
       </MobileWrapper>
