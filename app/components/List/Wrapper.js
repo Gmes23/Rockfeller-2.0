@@ -1,13 +1,18 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  overflow: hidden;
+    position: absolute;
+    right: 0px;
+    top: 250px;
+    width: 86.69%;
+    padding-right: 4%;
+    padding-left: 10vw;
+
+    @media screen and (max-width: 360px) {
+     padding-left: 0px;
+     width: 100%;
+     top: 250px;
+   }
 `;
 
 export default Wrapper;

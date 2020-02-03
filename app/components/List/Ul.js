@@ -5,8 +5,14 @@ const Ul = styled.ul`
   margin: 0;
   width: 100%;
   max-height: 30em;
-  overflow-y: auto;
   padding: 0 1em;
-`;
 
+
+  @media screen and (max-width: 360px) {
+   padding-right: 0em;
+   padding-top: 0em;
+   padding-left: 1em;
+   padding-bottom: 0em; 
+  }
+`;
 export default Ul;
