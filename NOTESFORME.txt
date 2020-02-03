@@ -1,1 +1,4 @@
 Searchbar not working due to api not working 
+
+-change all react router Link with react-router-dom, both reserve the Link keyword
+    and are causing conflict in styled components
