@@ -35,6 +35,11 @@ import saga from './saga';
 
 const key = 'home';
 
+
+//  Component  that renders the main part of the app 
+import ActionBar from 'components/MainActionContainer/homepage';
+
+
 export function HomePage({
   username,
   loading,
@@ -67,7 +72,9 @@ export function HomePage({
         />
       </Helmet>
       <div>
-        <CenteredSection>
+      <ActionBar />
+
+        {/* <CenteredSection>
           <H2>
             <FormattedMessage {...messages.startProjectHeader} />
           </H2>
@@ -95,7 +102,10 @@ export function HomePage({
             </label>
           </Form>
           <ReposList {...reposListProps} />
-        </Section>
+        </Section> */}
+
+<ReposList {...reposListProps} />
+
       </div>
     </article>
   );
