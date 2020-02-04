@@ -1,19 +1,13 @@
+import Helmet from 'react-helmet';
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import Img from './Img';
-import Profile from './profile.png'
 
 const Container = styled.div`
-  height: 40%;
-  width: 145px;
-  padding-left: 15px;
-  margin-top: 40px;
-
-  @media screen and (max-width: 460px) {
-    display: none;
-  }
+  position: absolute;
+  left: 25%;
+  top: 25%;
 `;
 
 const Alink = styled(Link)`
@@ -26,7 +20,6 @@ const Alink = styled(Link)`
 const Span = styled.span`
   position: absolute;
   border-bottom: solid 2px #fe0000;
-  width: 15px;
   left: 18.8%;
   vertical-align: text-bottom;
 `;
@@ -40,37 +33,50 @@ const  Ul_links = styled.ul`
   font-weight: 300;
 `;
 
-class LinksContainer extends Component {
+const ContactPageDiv = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+`;
+
+const ButtonBack = styled(Link)`
+    position: absolute;
+    height: 50px;
+    padding-top: 1.5vh;
+    width: 100px;
+    top: 60vh;
+    left: 20%;
+    text-align: center;
+    border: 2px solid red;
+    margin-left: 10%;
+`;
+
+
+class ContactPage extends Component {
   render() {
     return (
+      <ContactPageDiv>
         <Container>
+          <h1> Contact me here. </h1>
           < Ul_links>
             <li>
-              <Alink to="/"> Program </Alink>
+              <Alink to="/"> Github </Alink>
             </li>
             <li>
-              <Alink to="/info"> Info </Alink>
+              <Alink to="/info"> Personal Website </Alink>
               <Span />
             </li>
             <li>
-              <Alink to="/booking"> Booking </Alink>
-              <Span />
-            </li>
-            <li>
-              <Alink to="/FAQ"> FAQ </Alink>
-              <Span />
-            </li>
-            <li>
-              <Alink to="/contact"> Contact </Alink>
-              <Span />
-            </li>
-            <li>
+              <Alink to="/booking"> Linkedin </Alink>
               <Span />
             </li>
           </ Ul_links>
         </Container>
+        <ButtonBack to="/"> Back </ButtonBack>
+      </ContactPageDiv>
         );
   }
 }
 
-export default LinksContainer;
+export default ContactPage;

@@ -9,11 +9,17 @@ const selectGlobal = state => state.global || initialState;
 
 const selectRouter = state => state.router;
 
-const makeSelectCurrentUser = () =>
-  createSelector(
-    selectGlobal,
-    globalState => globalState.currentUser,
-  );
+
+const makeSelectCurrentSearchValue = () => createSelector(
+  selectGlobal,
+  (globalState) => globalState.get('currentSearchValue')
+);
+
+// const makeSelectCurrentUser = () =>
+//   createSelector(
+//     selectGlobal,
+//     globalState => globalState.currentUser,
+//   );
 
 const makeSelectLoading = () =>
   createSelector(
@@ -27,11 +33,23 @@ const makeSelectError = () =>
     globalState => globalState.error,
   );
 
-const makeSelectRepos = () =>
+// const makeSelectRepos = () =>
+//   createSelector(
+//     selectGlobal,
+//     globalState => globalState.userData.repositories,
+//   );
+
+  // const makeSelectListResults = () => createSelector(
+  //   selectGlobal,
+  //   (globalState) => globalState.getIn(['searchData', 'listresultsresponse'])
+  // );
+
+  const makeSelectListResults = () =>
   createSelector(
     selectGlobal,
     globalState => globalState.userData.repositories,
   );
+
 
 const makeSelectLocation = () =>
   createSelector(
@@ -41,9 +59,13 @@ const makeSelectLocation = () =>
 
 export {
   selectGlobal,
-  makeSelectCurrentUser,
+  // makeSelectCurrentUser,
+  makeSelectCurrentSearchValue,
+
   makeSelectLoading,
   makeSelectError,
-  makeSelectRepos,
+  // makeSelectRepos,
+  makeSelectListResults,
+
   makeSelectLocation,
 };

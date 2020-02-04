@@ -155,9 +155,14 @@ import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
 
+//Route Components
 import HomePage from 'containers/HomePage/Loadable';
 import FeaturePage from 'containers/FeaturePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import { FAQpage } from 'containers/FAQ/index'
+import { ContactPage } from 'containers/Contact/index'
+
+
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 
@@ -169,7 +174,7 @@ import LeftContainer from 'components/LeftContainerProfile';
 // // import withProgressBar from 'components/ProgressBar';
 import MobileMenu from 'components/MenuMobile/MenuMobile';
 import SearchBar from 'components/SearchBar/SearchBar';
-// // import FeatureWidget from 'components/FeaturesNav/FeaturesNav';
+import FeatureWidget from 'components/FeaturesNav/FeaturesNav';
 import LanguageOption from 'components/Language/LanguageOption';
 
 
@@ -208,17 +213,20 @@ export default function App() {
       <Logo />
       <SearchBar />
       <Header />
-      {/* <Switch>
+      <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/features" component={FeaturePage} />
-        <Route path="" component={NotFoundPage} />
-      </Switch> */}
+        <Route path="/404" component={NotFoundPage} />
+        <Route path="/FAQ" component={FAQpage} />
+        <Route path="/contact" component={ContactPage} />
+
+      </Switch>
       {/* <Footer /> */}
       <GlobalStyle />
 
       <MobileWrapper>
         <CalendarWidget />
-        {/* <FeatureWidget /> */}
+        <FeatureWidget />
         <MobileMenu />
         <LeftContainer />
         <LanguageOption />

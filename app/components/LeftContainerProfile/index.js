@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 // import { logout } from '../../containers/SignIn/authActions';
 import styled from 'styled-components';
 
-// import SocialLinks from '../SocialLinks/social_links';
+import SocialLinks from '../SocialLinks/social_links';
 import ProfileContainer from './profile';
 import LinksContainer from './about_links';
 import { defaultMemoize } from 'reselect';
@@ -137,7 +137,7 @@ class LeftContainer extends React.Component { // eslint-disable-line react/prefe
           <Wrapper>
             {/* { isAuthenticated ? userLinks : guestLinks } */}
             <LinksContainer />
-            {/* <SocialLinks /> */}
+            <SocialLinks />
           </Wrapper>
     );
   }

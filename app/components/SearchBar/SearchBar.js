@@ -193,12 +193,16 @@
 
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { createStructuredSelector, defaultMemoize } from 'reselect';
 
-// import {
-//   makeSelectListResults,
-//   makeSelectLoading,
-//   makeSelectError,
-// } from 'containers/App/selectors';
+
+
+import {
+  makeSelectListResults,
+  makeSelectLoading,
+  makeSelectError,
+} from 'containers/App/selectors';
 // import H2 from 'components/H2';
 // import ReposList from 'components/ReposList';
 // import AtPrefix from './AtPrefix';
@@ -207,9 +211,9 @@ import styled from 'styled-components';
 // import Input from './Input';
 // import Section from './Section';
 // import messages from './messages';
-// import { loadListResults } from '../../containers/App/actions';
-// import { changeSearchValue } from './actions';
-// import { makeSelectSearchValue } from './selectors';
+import { loadListResults } from '../../containers/App/actions';
+import { changeSearchValue } from './actions';
+import { makeSelectSearchValue } from './selectors';
 
 
 const SearchWrapper = styled.div`
@@ -286,49 +290,96 @@ const Icon_eyeglass = styled.a`
 `;
 
 
-class Searchbar extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            search: '',
-            searchSubmit: ''
-        }
-        this.handleSearchChange =  this.handleSearchChange.bind(this);
-        this.handleSubmit =  this.handleSubmit.bind(this);
-    }
+class SearchBar extends Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     search: '',
+  //     searchSubmit: ''
+  //   }
+  //   this.handleSearchChange = this.handleSearchChange.bind(this);
+  //   this.handleSubmit = this.handleSubmit.bind(this);
+  // }
 
-    handleSearchChange = (e) => {
-        this.setState({
-            search: e.target.value
-        });
-    }
+  // handleSearchChange = (e) => {
+  //   this.setState({
+  //     search: e.target.value
+  //   });
+  // }
 
-    handleSubmit = (e) => {
-        e.preventDefault();
-        this.setState({
-            searchSubmit: this.state.search
-        })
-    }
+  // handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   this.setState({
+  //     searchSubmit: this.state.search
+  //   })
+  // }
+  // componentDidMount() {
+  //   if (this.props.searchvalue && this.props.searchvalue.trim().length > 0) {
+  //     this.props.onSubmitForm();
+  //   }
+  // }
 
-    render() {
-        console.log(this.state)
-        return (
-            <div>
-              <SearchWrapper>
-                <form onSubmit={this.handleSubmit} >
-                    <InputSearch
-                      type="text" 
-                      placeholder="Search" 
-                      onChange={this.handleSearchChange} 
-                    />
-                </form>
-                <InputIcon>
-             <Icon_eyeglass className="material-icons">search</Icon_eyeglass>
-        </InputIcon>
-                </SearchWrapper>
-            </div>
-        )
-    }
+  render() {
+    console.log(this.state)
+    const { loading, error, listresults } = this.props;
+    const resultListProps = {
+      loading,
+      error,
+      listresults,
+    };
+    return (
+      <div>
+      
+        <SearchWrapper>
+          <form onSubmit={this.handleSubmit} >
+            <InputSearch
+              type="text"
+              placeholder="Search"
+              onChange={this.handleSearchChange}
+            />
+          </form>
+          <InputIcon>
+            <Icon_eyeglass className="material-icons">search</Icon_eyeglass>
+          </InputIcon>
+{/*         
+            <form onSubmit={this.props.onSubmitForm} autoComplete="off">
+              <label htmlFor="searchvalue">
+                <InputSearch
+                  id="searchvalue"
+                  type="text"
+                  placeholder="Search"
+                  value={this.props.searchvalue} 
+                  onChange={this.props.onChangeSearchValue} 
+                  autoComplete="off"
+                />
+              </label>
+            </form>
+             <InputIcon>
+                  <Icon_eyeglass className="material-icons">search</Icon_eyeglass>
+             </InputIcon> */}
+        </SearchWrapper>
+      </div>
+    )
+  }
 }
 
-export default Searchbar
+export default(SearchBar)
+
+// export function mapDispatchToProps(dispatch) {
+//   return {
+//     onChangeSearchValue: (evt) => dispatch(changeSearchValue(evt.target.value)),
+//     onSubmitForm: (evt) => {
+//       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
+//       dispatch(loadListResults())
+//     },
+//   };
+// }
+
+// const mapStateToProps = createStructuredSelector({
+//   listresults: makeSelectListResults(),
+//   searchvalue: makeSelectSearchValue(),
+//   loading: makeSelectLoading(),
+//   error: makeSelectError(),
+// });
+
+// export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
