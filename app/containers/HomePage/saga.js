@@ -15,7 +15,10 @@ import { makeSelectUsername } from 'containers/HomePage/selectors';
 export function* getRepos() {
   // Select username from store
   const username = yield select(makeSelectUsername());
-  const requestURL = `https://api.github.com/users/${username}/repos?type=all&sort=updated`;
+  // const requestURL = `https://api.github.com/users/${username}/repos?type=all&sort=updated`;
+  
+  // ticketmaster api 
+  const requestURL = `ttps://app.ticketmaster.com/discovery/v2/events?apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0`;
 
   try {
     // Call our request helper (see 'utils/request')

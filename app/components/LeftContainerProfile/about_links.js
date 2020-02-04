@@ -62,6 +62,8 @@ class LinksContainer extends Component {
             </li>
             <li>
               <Alink to="/contact"> Contact </Alink>
+              {/* <Link to="/contact"> Contact </Link> */}
+
               <Span />
             </li>
             <li>
