@@ -59,13 +59,13 @@ const Select_option = styled.p`
   font-family: tablet-gothic, sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 0.9em;
+  font-size: .9em;
   color: red;
   margin: 0px;
   float: left;
 
   @media screen and (max-width: 460px) {
-    font-size: 0.7em;
+    font-size: .7em
   }
 `;
 
@@ -73,16 +73,17 @@ const Select_option_2 = styled.p`
   font-family: tablet-gothic, sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 0.9em;
+  font-size: .9em;
   color: black;
   margin: 0px;
   margin-left: 12%;
   float: right;
-
+   
   @media screen and (max-width: 460px) {
-    font-size: 0.7em;
+    font-size: .7em
   }
 `;
+
 
 class FeatureWidget extends Component {
   render() {

@@ -169,7 +169,7 @@ import Footer from 'components/Footer';
 import GlobalStyle from '../../global-styles';
 
 import CalendarWidget from 'components/Calendar/Calendar';
-import Logo from 'components/Logo/Logo';
+// import Logo from 'components/Logo/Logo';
 import LeftContainer from 'components/LeftContainerProfile';
 // // import withProgressBar from 'components/ProgressBar';
 import MobileMenu from 'components/MenuMobile/MenuMobile';
@@ -179,12 +179,20 @@ import LanguageOption from 'components/Language/LanguageOption';
 
 
 
+// const AppWrapper = styled.div`
+//   max-width: calc(768px + 16px * 2);
+//   margin: 0 auto;
+//   display: flex;
+//   min-height: 100%;
+//   padding: 0 16px;
+//   flex-direction: column;
+// `;
+
 const AppWrapper = styled.div`
-  max-width: calc(768px + 16px * 2);
+  max-width: 100%;
   margin: 0 auto;
   display: flex;
-  min-height: 100%;
-  padding: 0 16px;
+  padding: 0;
   flex-direction: column;
 `;
 
@@ -210,7 +218,7 @@ export default function App() {
           { name: 'description', content: 'a ticket online store' },
         ]}
         />
-      <Logo />
+    
       <SearchBar />
       <Header />
       <Switch>
@@ -225,11 +233,11 @@ export default function App() {
       <GlobalStyle />
 
       <MobileWrapper>
-        <CalendarWidget />
         <FeatureWidget />
+        <CalendarWidget />
+        <LanguageOption />
         <MobileMenu />
         <LeftContainer />
-        <LanguageOption />
       </MobileWrapper>
     </AppWrapper>
   );

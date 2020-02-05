@@ -63,7 +63,8 @@ export function HomePage({
   };
 
   return (
-    <article>
+    // <article>
+      <div>
       <Helmet>
         <title>Home Page</title>
         <meta
@@ -104,10 +105,11 @@ export function HomePage({
           <ReposList {...reposListProps} />
         </Section> */}
 
-<ReposList {...reposListProps} />
+    <ReposList {...reposListProps} />
 
       </div>
-    </article>
+      </div>
+    // </article>
   );
 }
 
