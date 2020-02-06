@@ -10,6 +10,9 @@ function List(props) {
 
   // If we have items, render them
   if (props.items) {
+    console.log(props, 'this is props')
+    console.log(props.items, 'this is props itmes') 
+    
     content = props.items.map(item => (
       <ComponentToRender key={`item-${item.id}`} item={item} />
     ));
@@ -25,9 +28,9 @@ function List(props) {
   );
 }
 
-List.propTypes = {
-  component: PropTypes.elementType.isRequired,
-  items: PropTypes.array,
-};
+// List.propTypes = {
+//   component: PropTypes.elementType.isRequired,
+//   items: PropTypes.array,
+// };
 
 export default List;
