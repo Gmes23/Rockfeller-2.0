@@ -197,6 +197,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { createStructuredSelector, defaultMemoize } from 'reselect';
 
+import { compose } from 'redux';
 
 import { useInjectReducer } from 'utils/injectReducer';
 import { useInjectSaga } from 'utils/injectSaga';
@@ -216,7 +217,9 @@ import {
 // import Input from './Input';
 // import Section from './Section';
 // import messages from './messages';
-import { loadListResults } from '../../containers/App/actions';
+// import { loadListResults } from '../../containers/App/actions';
+import { loadRepos } from '../../containers/App/actions';
+
 import { changeSearchValue } from './actions';
 import { makeSelectSearchValue } from './selectors';
 
@@ -378,14 +381,14 @@ export function SearchBar({
   error,
   repos,
   onSubmitForm,
-  onChangeUsername,
+  onChangeSearchValue,
 }) {
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga });
 
   useEffect(() => {
     // When initial state username is not null, submit the form to load repos
-    if (searchvalue && searchvalue.trim().length > 0) onSubmitForm();
+    if (searchvalue && searchvalue.length > 0) onSubmitForm();
   }, []);
 
   const reposListProps = {
@@ -398,18 +401,13 @@ export function SearchBar({
     <div>
         <SearchWrapper>        
         <form onSubmit={onSubmitForm}>
-
-            {/* <form onSubmit={this.props.onSubmitForm} autoComplete="off"> */}
               <label htmlFor="searchvalue">
                 <InputSearch
                   id="searchvalue"
                   type="text"
                   placeholder="Search"
-                  // value={this.props.searchvalue}
                   value={searchvalue}
-                // onChange={onChangeUsername} 
-                  // onChange={this.props.onChangeSearchValue} 
-                  // autoComplete="off"
+                  onChange={onChangeSearchValue} 
                 />
               </label>
             </form>
@@ -420,17 +418,29 @@ export function SearchBar({
       </div>
   );
 }
-// export default(SearchBar)
+
+// export function mapDispatchToProps(dispatch) {
+//   return {
+//     onChangeSearchValue: (evt) => dispatch(changeSearchValue(evt.target.value)),
+//     onSubmitForm: (evt) => {
+//       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
+//       dispatch(loadListResults())
+//     },
+//   };
+// }
+
+
 
 export function mapDispatchToProps(dispatch) {
   return {
-    onChangeSearchValue: (evt) => dispatch(changeSearchValue(evt.target.value)),
-    onSubmitForm: (evt) => {
+    onChangeSearchValue: evt => dispatch(changeSearchValue(evt.target.value)),
+    onSubmitForm: evt => {
       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-      dispatch(loadListResults())
+      dispatch(loadRepos());
     },
   };
 }
+
 
 const mapStateToProps = createStructuredSelector({
   listresults: makeSelectListResults(),
@@ -439,4 +449,14 @@ const mapStateToProps = createStructuredSelector({
   error: makeSelectError(),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+// export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+
+const withConnect = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+);
+
+export default compose(
+  withConnect,
+  memo,
+)(SearchBar);

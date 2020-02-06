@@ -14,7 +14,9 @@ import {
 } from 'containers/App/actions';
 
 import request from 'utils/request';
-import { makeSelectSearchValue } from 'containers/HomePage/selectors';
+// import { makeSelectSearchValue } from 'containers/HomePage/selectors';
+
+import { makeSelectSearchValue } from './selectors';
 
 /**
  * Github repos request/response handler
@@ -23,7 +25,9 @@ export function* getListResults() {
   // Select searchvalue from store
   const searchvalue = yield select(makeSelectSearchValue());
 
-  const requestURL = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=ugDKj6qVDvxl39iQzLiY5VR2c173RABy&keyword=${searchvalue}&size=5`;
+  const requestURL = `https://app.ticketmaster.com/discovery/v2/events?apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0`;
+
+  // const requestURL = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=ugDKj6qVDvxl39iQzLiY5VR2c173RABy&keyword=${searchvalue}&size=5`;
 
   try {
     // Call our request helper (see 'utils/request')
