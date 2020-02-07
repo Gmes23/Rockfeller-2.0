@@ -219,6 +219,8 @@ import {
 // import messages from './messages';
 // import { loadListResults } from '../../containers/App/actions';
 import { loadRepos } from '../../containers/App/actions';
+import { loadListResults} from '../../containers/App/actions';
+
 
 import { changeSearchValue } from './actions';
 import { makeSelectSearchValue } from './selectors';
@@ -431,15 +433,26 @@ export function SearchBar({
 
 
 
+// export function mapDispatchToProps(dispatch) {
+//   return {
+//     onChangeSearchValue: evt => dispatch(changeSearchValue(evt.target.value)),
+//     onSubmitForm: evt => {
+//       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
+//       dispatch(loadRepos());
+//     },
+//   };
+// }
+
 export function mapDispatchToProps(dispatch) {
   return {
     onChangeSearchValue: evt => dispatch(changeSearchValue(evt.target.value)),
     onSubmitForm: evt => {
       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-      dispatch(loadRepos());
+      dispatch(loadListResults());
     },
   };
 }
+
 
 
 const mapStateToProps = createStructuredSelector({

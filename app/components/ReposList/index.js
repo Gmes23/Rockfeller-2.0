@@ -1,3 +1,39 @@
+// import React from 'react';
+// import PropTypes from 'prop-types';
+
+// import List from 'components/List';
+// import ListItem from 'components/ListItem';
+// import LoadingIndicator from 'components/LoadingIndicator';
+// import RepoListItem from 'containers/RepoListItem';
+
+// function ReposList({ loading, error, repos }) {
+//   if (loading) {
+//     return <List component={LoadingIndicator} />;
+//   }
+
+//   if (error !== false) {
+//     const ErrorComponent = () => (
+//       <ListItem item="Something went wrong, please try again!" />
+//     );
+//     return <List component={ErrorComponent} />;
+//   }
+
+//   if (repos !== false) {
+//     return <List items={repos} component={RepoListItem} />;
+//   }
+
+//   return null;
+// }
+
+// // ReposList.propTypes = {
+// //   loading: PropTypes.bool,
+// //   error: PropTypes.any,
+// //   repos: PropTypes.any,
+// // };
+
+// export default ReposList;
+
+
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -6,7 +42,7 @@ import ListItem from 'components/ListItem';
 import LoadingIndicator from 'components/LoadingIndicator';
 import RepoListItem from 'containers/RepoListItem';
 
-function ReposList({ loading, error, repos }) {
+function ReposList({ loading, error, events }) {
   if (loading) {
     return <List component={LoadingIndicator} />;
   }
@@ -18,17 +54,17 @@ function ReposList({ loading, error, repos }) {
     return <List component={ErrorComponent} />;
   }
 
-  if (repos !== false) {
-    return <List items={repos} component={RepoListItem} />;
+  if (events !== false) {
+    return <List items={events} component={RepoListItem} />;
   }
 
   return null;
 }
 
-ReposList.propTypes = {
-  loading: PropTypes.bool,
-  error: PropTypes.any,
-  repos: PropTypes.any,
-};
+// ReposList.propTypes = {
+//   loading: PropTypes.bool,
+//   error: PropTypes.any,
+//   repos: PropTypes.any,
+// };
 
 export default ReposList;

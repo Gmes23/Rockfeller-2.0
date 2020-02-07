@@ -219,7 +219,7 @@ export default function App() {
         ]}
         />
     
-      <SearchBar />
+      {/* <SearchBar /> */}
       <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />

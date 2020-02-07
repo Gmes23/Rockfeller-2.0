@@ -1,1 +1,1 @@
-export const CHANGE_SEARCHVALUE = 'boilerplate/Home/CHANGE_SEARCHVALUE';
+export const CHANGE_SEARCH_VALUE = 'boilerplate/SearchBar/CHANGE_SEARCH_VALUE';

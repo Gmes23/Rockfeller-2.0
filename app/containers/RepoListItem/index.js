@@ -98,6 +98,7 @@ import { makeSelectCurrentUser } from 'containers/App/selectors';
 import styled from 'styled-components';
 
 import Img from './Img';
+import { makeSelectCurrentSearchValue } from '../App/selectors';
 // import PlaceholderB from './placeholderB.jpg'
 
 
@@ -430,6 +431,6 @@ export class RepoListItem extends React.PureComponent { // eslint-disable-line r
 
 export default connect(
   createStructuredSelector({
-    currentUser: makeSelectCurrentUser(),
+    currentSearchValue: makeSelectCurrentSearchValue(),
   }),
 )(RepoListItem);

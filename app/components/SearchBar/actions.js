@@ -16,7 +16,7 @@
 
 
 
-import { CHANGE_SEARCHVALUE } from './constants';
+import { CHANGE_SEARCH_VALUE } from './constants';
 
 /**
  * Changes the input field of the form
@@ -27,7 +27,7 @@ import { CHANGE_SEARCHVALUE } from './constants';
  */
 export function changeSearchValue(searchvalue) {
   return {
-    type: CHANGE_SEARCHVALUE,
+    type: CHANGE_SEARCH_VALUE,
     searchvalue,
   };
 }

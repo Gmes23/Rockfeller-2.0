@@ -19,7 +19,7 @@
 
 
 import produce from 'immer';
-import { CHANGE_SEARCHVALUE } from './constants';
+import { CHANGE_SEARCH_VALUE } from './constants';
 
 // The initial state of the App
 export const initialState = {
@@ -30,8 +30,7 @@ export const initialState = {
 const homeReducer = (state = initialState, action) =>
   produce(state, draft => {
     switch (action.type) {
-      case CHANGE_SEARCHVALUE:
-        // Delete prefixed '@' from the github username
+      case CHANGE_SEARCH_VALUE:
         draft.searchvalue = action.searchvalue.replace(/@/gi, '');
         break;
     }
