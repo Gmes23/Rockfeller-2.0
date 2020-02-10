@@ -159,7 +159,8 @@ import { Switch, Route } from 'react-router-dom';
 import HomePage from 'containers/HomePage/Loadable';
 import FeaturePage from 'containers/FeaturePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import FAQpage from 'containers/FAQ/Loadable';
+import FAQpage from 'containers/FAQ/Loadable'
+
 import ContactPage from 'containers/Contact/Loadable'
 
 
@@ -173,7 +174,7 @@ import Footer from 'components/Footer';
 import GlobalStyle from '../../global-styles';
 
 import CalendarWidget from 'components/Calendar/Calendar';
-// import Logo from 'components/Logo/Logo';
+import Logo from 'components/Logo/Logo';
 import LeftContainer from 'components/LeftContainerProfile';
 // // import withProgressBar from 'components/ProgressBar';
 import MobileMenu from 'components/MenuMobile/MenuMobile';
@@ -222,7 +223,7 @@ export default function App() {
           { name: 'description', content: 'a ticket online store' },
         ]}
         />
-    
+    <Logo />
       {/* <SearchBar /> */}
       <Header />
       <Switch>

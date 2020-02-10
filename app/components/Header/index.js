@@ -31,7 +31,7 @@ class Header extends React.Component {
   render() {
     return (
       <NavBar>
-        <Logo />
+        {/* <Logo /> */}
         <Right_navcontainer>
           <CalendarWidget />
           <FeaturesNav />
