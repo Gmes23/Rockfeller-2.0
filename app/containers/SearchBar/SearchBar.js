@@ -202,7 +202,7 @@ import { compose } from 'redux';
 import { useInjectReducer } from 'utils/injectReducer';
 import { useInjectSaga } from 'utils/injectSaga';
 import reducer from './reducer';
-import saga from 'containers/HomePage/saga.js';
+import saga from './saga.js';
 
 import {
   makeSelectListResults,

@@ -42,7 +42,7 @@ import ListItem from 'components/ListItem';
 import LoadingIndicator from 'components/LoadingIndicator';
 import RepoListItem from 'containers/RepoListItem';
 
-function ReposList({ loading, error, events }) {
+function ReposList({ loading, error, listresults }) {
   if (loading) {
     return <List component={LoadingIndicator} />;
   }
@@ -54,8 +54,8 @@ function ReposList({ loading, error, events }) {
     return <List component={ErrorComponent} />;
   }
 
-  if (events !== false) {
-    return <List items={events} component={RepoListItem} />;
+  if (listresults !== false) {
+    return <List items={listresults} component={RepoListItem} />;
   }
 
   return null;

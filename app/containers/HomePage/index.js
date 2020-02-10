@@ -15,7 +15,7 @@ import { createStructuredSelector } from 'reselect';
 import { useInjectReducer } from 'utils/injectReducer';
 import { useInjectSaga } from 'utils/injectSaga';
 import {
-  makeSelectRepos,
+  makeSelectListResults,
   makeSelectLoading,
   makeSelectError,
 } from 'containers/App/selectors';
@@ -44,7 +44,7 @@ export function HomePage({
   username,
   loading,
   error,
-  repos,
+  listresults,
   onSubmitForm,
   onChangeUsername,
 }) {
@@ -59,7 +59,7 @@ export function HomePage({
   const reposListProps = {
     loading,
     error,
-    repos,
+    listresults,
   };
 
   return (
@@ -123,7 +123,7 @@ export function HomePage({
 // };
 
 const mapStateToProps = createStructuredSelector({
-  // repos: makeSelectRepos(),
+  listresults: makeSelectListResults(),
   // username: makeSelectUsername(),
   loading: makeSelectLoading(),
   error: makeSelectError(),
@@ -140,7 +140,7 @@ const mapStateToProps = createStructuredSelector({
 // }
 
 const withConnect = connect(
-  // mapStateToProps,
+  mapStateToProps,
   // mapDispatchToProps,
 );
 

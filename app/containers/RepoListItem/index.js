@@ -332,7 +332,7 @@ export class RepoListItem extends React.PureComponent { // eslint-disable-line r
     // json from ticketmaster api
     const item = this.props.item;
 
-    console.log(item , ' this is item from repolist component')
+    console.log(this.props.item, ' this is item from repolist component')
 
     // converting date json
     var dateObj = item.dates.start.localDate;
