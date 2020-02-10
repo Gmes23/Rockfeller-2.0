@@ -381,24 +381,29 @@ export function SearchBar({
   searchvalue,
   loading,
   error,
-  repos,
+  listresults,
   onSubmitForm,
   onChangeSearchValue,
 }) {
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga });
 
+  // useEffect(() => {
+  //   // When initial state username is not null, submit the form to load repos
+  //   if (searchvalue && searchvalue.length > 0) onSubmitForm();
+  // }, []);
+
   useEffect(() => {
-    // When initial state username is not null, submit the form to load repos
-    if (searchvalue && searchvalue.length > 0) onSubmitForm();
+     onSubmitForm();
   }, []);
 
   const reposListProps = {
     loading,
     error,
-    repos,
+    listresults,
   };
 
+  console.log({searchvalue})
   return (
     <div>
         <SearchWrapper>        
@@ -445,7 +450,7 @@ export function SearchBar({
 
 export function mapDispatchToProps(dispatch) {
   return {
-    onChangeSearchValue: evt => dispatch(changeSearchValue(evt.target.value)),
+    onChangeSearchValue: searchvalue => dispatch(changeSearchValue(searchvalue)),
     onSubmitForm: evt => {
       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
       dispatch(loadListResults());

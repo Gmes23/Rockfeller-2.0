@@ -18,6 +18,26 @@
 // export default homeReducer;
 
 
+// import produce from 'immer';
+// import { CHANGE_SEARCH_VALUE } from './constants';
+
+// // The initial state of the App
+// export const initialState = {
+//   searchvalue: '',
+// };
+
+// /* eslint-disable default-case, no-param-reassign */
+// const homeReducer = (state = initialState, action) =>
+//   produce(state, draft => {
+//     switch (action.type) {
+//       case CHANGE_SEARCH_VALUE:
+//         draft.searchvalue = action.searchvalue.replace(/@/gi, '');
+//         break;
+//     }
+//   });
+
+// export default homeReducer;
+
 import produce from 'immer';
 import { CHANGE_SEARCH_VALUE } from './constants';
 
@@ -31,9 +51,10 @@ const homeReducer = (state = initialState, action) =>
   produce(state, draft => {
     switch (action.type) {
       case CHANGE_SEARCH_VALUE:
-        draft.searchvalue = action.searchvalue.replace(/@/gi, '');
+        draft.searchvalue = action.searchvalue;
         break;
     }
   });
 
 export default homeReducer;
+
