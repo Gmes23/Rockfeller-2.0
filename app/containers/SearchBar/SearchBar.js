@@ -450,7 +450,7 @@ export function SearchBar({
 
 export function mapDispatchToProps(dispatch) {
   return {
-    onChangeSearchValue: searchvalue => dispatch(changeSearchValue(searchvalue)),
+    onChangeSearchValue: evt => dispatch(changeSearchValue(evt.target.value)),
     onSubmitForm: evt => {
       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
       dispatch(loadListResults());
