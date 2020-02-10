@@ -6,3 +6,5 @@ Searchbar not working due to api not working
 
     I want the search bar on every page but only on the homepge to load events, 
     that way the user can use the search bar in his profile to search other things 
+
+    - react -helmet causes an error if you load components with it in app with reat-router-dom

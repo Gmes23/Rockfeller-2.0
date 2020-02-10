@@ -159,8 +159,12 @@ import { Switch, Route } from 'react-router-dom';
 import HomePage from 'containers/HomePage/Loadable';
 import FeaturePage from 'containers/FeaturePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import { FAQpage } from 'containers/FAQ/index'
-import { ContactPage } from 'containers/Contact/index'
+import FAQpage from 'containers/FAQ/Loadable';
+import ContactPage from 'containers/Contact/Loadable'
+
+
+// import { FAQpage } from 'containers/FAQ/index'
+// import { ContactPage } from 'containers/Contact/index'
 
 
 import Header from 'components/Header';

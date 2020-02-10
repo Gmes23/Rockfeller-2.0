@@ -20,12 +20,12 @@ class FAQpage extends Component { // eslint-disable-line react/prefer-stateless-
 
     return (
       <div>
-        <Helmet
+        {/* <Helmet
           title="FAQ"
           meta={[
             { name: 'description', content: 'Search upcoming concerts by your favorite Artist' },
           ]}
-        />
+        /> */}
         <FAQpageDiv>
           <UpdateContainer>
             <h1> FAQ / Updates</h1>
@@ -43,3 +43,26 @@ class FAQpage extends Component { // eslint-disable-line react/prefer-stateless-
 
 // Wrap the component to inject dispatch and state into it
 export default FAQpage;
+
+
+// export default function FAQpage() {
+//   return (
+//     <div>
+//     <Helmet
+//       title="FAQ"
+//       meta={[
+//         { name: 'description', content: 'Search upcoming concerts by your favorite Artist' },
+//       ]}
+//     />
+//     <FAQpageDiv>
+//       <UpdateContainer>
+//         <h1> FAQ / Updates</h1>
+//           <h3> Updates </h3>
+//           <p> Profile Page </p>
+//           <p> Ability to add Friends </p>
+//           <p> Messaging </p>
+//       </UpdateContainer>
+//     </FAQpageDiv>
+//   </div>
+//   )
+// }
