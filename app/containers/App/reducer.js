@@ -71,7 +71,7 @@ const appReducer = (state = initialState, action) =>
         break;
 
       case LOAD_LIST_RESULTS_SUCCESS:
-        draft.searchData.list = action.items;
+        draft.searchData.list = action.listresults;
         draft.loading = false;
         draft.currentSearchValue = action.searchvalue;
         break;

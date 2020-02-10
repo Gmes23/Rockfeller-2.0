@@ -388,14 +388,14 @@ export function SearchBar({
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga });
 
-  // useEffect(() => {
-  //   // When initial state username is not null, submit the form to load repos
-  //   if (searchvalue && searchvalue.length > 0) onSubmitForm();
-  // }, []);
-
   useEffect(() => {
-     onSubmitForm();
+    // When initial state username is not null, submit the form to load repos
+    if (searchvalue && searchvalue.length > 0) onSubmitForm();
   }, []);
+
+  // useEffect(() => {
+  //    onSubmitForm();
+  // }, []);
 
   const reposListProps = {
     loading,

@@ -12,7 +12,9 @@ import Logo from '../Logo/Logo';
 import CalendarWidget from '../Calendar/Calendar';
 import FeaturesNav from '../FeaturesNav/FeaturesNav';
 import LanguageOption from '../Language/LanguageOption';
-import SearchBar from '../SearchBar/SearchBar';
+// import SearchBar from '../SearchBar/SearchBar';
+import SearchBar from '../../containers/SearchBar/SearchBar';
+
 
 const Right_navcontainer = styled.div`
   width: 100%;

@@ -96,8 +96,8 @@ export function loadListResults() {
 export function listresultsLoaded(listresults, searchvalue) {
   return {
     type: LOAD_LIST_RESULTS_SUCCESS,
-     listresults: listresults._embedded.events,
-     searchvalue,
+    listresults: listresults._embedded.events,
+    searchvalue,
   };
 }
 

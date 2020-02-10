@@ -23,7 +23,8 @@ const selectHome = state => state.searchbar || initialState;
 const makeSelectSearchValue = () =>
   createSelector(
     selectHome,
-    homeState => homeState,
+    homeState => homeState.searchvalue,
+    //  console.log( selectHome, 'this is homeState.searchvalue')
   );
 
 export { selectHome, makeSelectSearchValue };

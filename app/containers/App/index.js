@@ -173,7 +173,7 @@ import CalendarWidget from 'components/Calendar/Calendar';
 import LeftContainer from 'components/LeftContainerProfile';
 // // import withProgressBar from 'components/ProgressBar';
 import MobileMenu from 'components/MenuMobile/MenuMobile';
-import SearchBar from 'components/SearchBar/SearchBar';
+// import SearchBar from 'components/SearchBar/SearchBar';
 import FeatureWidget from 'components/FeaturesNav/FeaturesNav';
 import LanguageOption from 'components/Language/LanguageOption';
 

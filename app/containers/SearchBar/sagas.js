@@ -58,10 +58,12 @@
 
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { LOAD_LIST_RESULTS } from 'containers/App/constants';
-import { loadListResults, listresultsLoadingError } from 'containers/App/actions';
+import { listresultsLoaded, listresultsLoadingError } from 'containers/App/actions';
 
 import request from 'utils/request';
-import { makeSelectSearchValue } from 'components/SearchBar/selectors';
+// import { makeSelectSearchValue } from 'components/SearchBar/selectors';
+
+import { makeSelectSearchValue } from 'containers/SearchBar/selectors';
 
 /**
  *  This handles the request/response from searchvalue, for ticketmaster data
@@ -78,8 +80,8 @@ export function* getListResults() {
        Use request helper (see 'utils/request')
        Calls events from the ticketmaster API to load events in the frontpage
      */
-    const events = yield call(request, requestURL);
-    yield put(loadListResults(events, searchvalue));
+    const listresults = yield call(request, requestURL);
+    yield put(listresultsLoaded(listresults, searchvalue));
   } catch (err) {
     yield put(listresultsLoadingError (err));
   }
