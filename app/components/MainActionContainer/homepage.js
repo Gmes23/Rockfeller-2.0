@@ -17,7 +17,7 @@ const CurrentActions = styled.div`
   display: flex;
 `;
 
-const UpcomingShowTextContainer = styled.div `
+const UpcomingShowTextContainer = styled.div`
   height: 30px;
   width: 150px;
   font-family: corporate-s, sans-serif;
@@ -38,7 +38,7 @@ const TriangleArrow = styled.div`
   transform: rotate(90deg);
 `;
 
-const DisplayResultSettingContainer = styled.div `
+const DisplayResultSettingContainer = styled.div`
   height: 30px;
   width: 150px;
   margin-left: 4.5%;

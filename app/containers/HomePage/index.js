@@ -151,7 +151,7 @@ export function HomePage({
         />
       </Helmet>
       <div>
-      {/* <ActionBar /> */}
+      <ActionBar />
 
         {/* <CenteredSection>
           <H2>
@@ -191,31 +191,15 @@ export function HomePage({
   );
 }
 
-// HomePage.propTypes = {
-//   loading: PropTypes.bool,
-//   error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
-//   repos: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
-//   onSubmitForm: PropTypes.func,
-//   username: PropTypes.string,
-//   onChangeUsername: PropTypes.func,
-// };
+
 
 const mapStateToProps = createStructuredSelector({
   listresults: makeSelectListResults(),
-  // username: makeSelectUsername(),
   loading: makeSelectLoading(),
   error: makeSelectError(),
 });
 
-// export function mapDispatchToProps(dispatch) {
-//   return {
-//     onChangeUsername: evt => dispatch(changeUsername(evt.target.value)),
-//     onSubmitForm: evt => {
-//       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-//       dispatch(loadRepos());
-//     },
-//   };
-// }
+
 
 const withConnect = connect(
   mapStateToProps,
