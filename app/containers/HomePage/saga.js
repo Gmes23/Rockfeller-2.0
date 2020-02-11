@@ -18,7 +18,7 @@ export function* getRepos() {
   // const requestURL = `https://api.github.com/users/${username}/repos?type=all&sort=updated`;
   
   // ticketmaster api 
-  const requestURL = `https://app.ticketmaster.com/discovery/v2/events?apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0`;
+  // const requestURL = `https://app.ticketmaster.com/discovery/v2/events?apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0`;
 
   try {
     // Call our request helper (see 'utils/request')
@@ -37,5 +37,6 @@ export default function* githubData() {
   // By using `takeLatest` only the result of the latest API call is applied.
   // It returns task descriptor (just like fork) so we can continue execution
   // It will be cancelled automatically on component unmount
-  yield takeLatest(LOAD_REPOS, getRepos);
+  // yield takeLatest(LOAD_REPOS, getRepos);
+  // i might re use this to build something else 
 }

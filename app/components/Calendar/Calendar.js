@@ -27,6 +27,7 @@ const Logo_h1 = styled.h1`
   font-weight: 600;
   font-size: 1em;
   margin-bottom: -10px;
+  margin-top: 5px;
 `;
 
 const Span_text = styled.span`
@@ -40,7 +41,7 @@ const Logo_h2 = styled.h2`
   font-weight: 600;
   font-size: 2.6em;
   margin-bottom: -10px;
-  margin-top: 0px;
+  margin-top: 5px;
 `;
 
 const months = [

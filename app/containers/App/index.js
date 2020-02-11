@@ -10,12 +10,6 @@ import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import FAQpage from 'containers/FAQ/Loadable'
 
 import ContactPage from 'containers/Contact/Loadable'
-
-
-// import { FAQpage } from 'containers/FAQ/index'
-// import { ContactPage } from 'containers/Contact/index'
-
-
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 

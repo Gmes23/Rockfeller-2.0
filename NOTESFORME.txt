@@ -8,3 +8,6 @@ Searchbar not working due to api not working
     that way the user can use the search bar in his profile to search other things 
 
     - react -helmet causes an error if you load components with it in app with reat-router-dom
+
+    -Need to refactor mobile styles
+        - 

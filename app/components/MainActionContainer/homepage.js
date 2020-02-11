@@ -5,6 +5,8 @@ import HomePageResult from './homepage_result';
 
 const Container = styled.div`
   width: 100%;
+  position: absolute;
+  top: 200px;
 
   @media screen and (max-width: 360px) {
     display: none;

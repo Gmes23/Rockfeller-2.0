@@ -21,7 +21,7 @@ const Logo_h1 = styled.h1`
   font-family: tablet-gothic, sans-serif;
   font-style: normal;
   font-weight: 600;
-  margin-bottom: -10px;
+  margin-bottom: 10px;
   font-size: 2.37em;
   @media screen and (max-width: 360px) {
     font-size: 1.6em;
