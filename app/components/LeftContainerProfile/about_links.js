@@ -31,7 +31,7 @@ const Span = styled.span`
   vertical-align: text-bottom;
 `;
 
-const  Ul_links = styled.ul`
+const Ul_links = styled.ul`
   text-decoration: none;
   list-style-type: none;
   padding: 0px;
