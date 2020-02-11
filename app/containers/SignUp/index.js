@@ -48,68 +48,69 @@ const ButtonBack = styled(Link)`
   margin-left: 35%;
 `;
 
-const ButtonHolder = styled.div `
+const ButtonHolder = styled.div`
   display: flex;
 `;
 
 
 
 class SignUpForm extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        username: '',
-        email: '',
-        password: '',
-        passwordConfirmation: '',
-        errors: {},
-        isLoading: false,
-        invalid: false
-      }
-  
-      this.onChange = this.onChange.bind(this);
-      this.onSubmit = this.onSubmit.bind(this);
-      this.checkUserExists = this.checkUserExists.bind(this);
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',
+      email: '',
+      password: '',
+      passwordConfirmation: '',
+      errors: {},
+      isLoading: false,
+      invalid: false
     }
-  
-    onChange(e) {
-      this.setState({ [e.target.name]: e.target.value });
+
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+    this.checkUserExists = this.checkUserExists.bind(this);
+  }
+
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  isValid() {
+    const { errors, isValid } = validateInput(this.state);
+
+    if (!isValid) {
+      this.setState({ errors });
     }
-  
-    isValid() {
-      const { errors, isValid } = validateInput(this.state);
-  
-      if (!isValid) {
-        this.setState({ errors });
-      }
-  
-      return isValid;
+
+    return isValid;
+  }
+
+  checkUserExists(e) {
+    const field = e.target.name;
+    const val = e.target.value;
+    if (val !== '') {
+      this.props.isUserExists(val).then(res => {
+        let errors = this.state.errors;
+        let invalid;
+        if (res.data.user) {
+          errors[field] = 'There is user with such ' + field;
+          invalid = true;
+        } else {
+          console.log(res.data)
+          errors[field] = '';
+          invalid = false;
+        }
+        this.setState({ errors, invalid });
+      });
     }
-  
-    checkUserExists(e) {
-      const field = e.target.name;
-      const val = e.target.value;
-      if (val !== '') {
-        this.props.isUserExists(val).then(res => {
-          let errors = this.state.errors;
-          let invalid;
-          if (res.data.user) {
-            errors[field] = 'There is user with such ' + field;
-            invalid = true;
-          } else {
-            console.log(res.data)
-            errors[field] = '';
-            invalid = false;
-          }
-          this.setState({ errors, invalid });
-        });
-      }
-    }
-  
-      onSubmit(evt) {
-      evt.preventDefault();
-      const userInfo = this.state;
-      console.log(userInfo, ' this is e from onSubmit register')
+  }
+
+  onSubmit(evt) {
+    evt.preventDefault();
+    const userInfo = this.state;
+    registerUser(userInfo)
+
     //   if (this.isValid()) {
     //     this.setState({ errors: {}, isLoading: true });
     //     this.props.userSignupRequest(this.state).then(
@@ -119,93 +120,91 @@ class SignUpForm extends React.Component {
     //       (err) => this.setState({ errors: err.response.data, isLoading: false })
     //     );
     //   }
-  
-    }
-  
-  
-    render() {
-      const { errors } = this.state;
-   
-      return (
+
+  }
+
+
+  render() {
+    const { errors } = this.state;
+
+    return (
       <SignUpPage>
         <Form onSubmit={this.onSubmit}>
           <h1>Join our community!</h1>
-  
-        <InputDiv>
-          <TextFieldGroup
-            // error={errors.username}
-            label="Username"
-            onChange={this.onChange}
-            // checkUserExists={this.checkUserExists}
-            value={this.state.username}
-            field="username"
-          />
-        </InputDiv>
-  
-        <InputDiv>
-          <TextFieldGroup
-            // error={errors.email}
-            label="Email"
-            onChange={this.onChange}
-            // checkUserExists={this.checkUserExists}
-            value={this.state.email}
-            field="email"
-          />
-        </InputDiv>
-  
-        <InputDiv>
-          <TextFieldGroup
-            // error={errors.password}
-            label="Password"
-            onChange={this.onChange}
-            value={this.state.password}
-            field="password"
-            type="password"
-          />
-        </InputDiv>
-  
-        <InputDiv>
-          <TextFieldGroup
-            // error={errors.passwordConfirmation}
-            label="Password Confirmation"
-            onChange={this.onChange}
-            value={this.state.passwordConfirmation}
-            field="passwordConfirmation"
-            type="password"
-          />
-        </InputDiv>
-  
+
+          <InputDiv>
+            <TextFieldGroup
+              // error={errors.username}
+              label="Username"
+              onChange={this.onChange}
+              // checkUserExists={this.checkUserExists}
+              value={this.state.username}
+              field="username"
+            />
+          </InputDiv>
+
+          <InputDiv>
+            <TextFieldGroup
+              // error={errors.email}
+              label="Email"
+              onChange={this.onChange}
+              // checkUserExists={this.checkUserExists}
+              value={this.state.email}
+              field="email"
+            />
+          </InputDiv>
+
+          <InputDiv>
+            <TextFieldGroup
+              // error={errors.password}
+              label="Password"
+              onChange={this.onChange}
+              value={this.state.password}
+              field="password"
+              type="password"
+            />
+          </InputDiv>
+
+          <InputDiv>
+            <TextFieldGroup
+              // error={errors.passwordConfirmation}
+              label="Password Confirmation"
+              onChange={this.onChange}
+              value={this.state.passwordConfirmation}
+              field="passwordConfirmation"
+              type="password"
+            />
+          </InputDiv>
+
           <ButtonHolder>
             <Button disabled={this.state.isLoading || this.state.invalid} className="btn btn-primary btn-lg">
               Sign up
             </Button>
             <ButtonBack to="/"> Back </ButtonBack>
           </ButtonHolder>
-  
+
         </Form>
       </SignUpPage>
-      );
-    }
+    );
   }
-  
+}
+
 //   SignupForm.propTypes = {
 //     userSignupRequest: React.PropTypes.func.isRequired,
 //     isUserExists: React.PropTypes.func.isRequired
 //   }
-  
+
 //   SignupForm.contextTypes = {
 //     router: React.PropTypes.object.isRequired
 //   }
-  
-  // export default SignupForm;
-  
-  const mapDispatchToProps = dispatch => ({
-    onSubmitForm: evt => {
-      if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-      dispatch(registerUser(userInfo));
-    },
-  })
-  export default connect(mapDispatchToProps, { registerUser })(SignUpForm);
+
+// export default SignupForm;
+
+const mapDispatchToProps = dispatch => ({
+  registerUser: (userInfo) => dispatch(registerUser(userInfo))
+})
+
+export default connect(mapDispatchToProps, { registerUser })(SignUpForm);
 
   // export default connect(null, { userSignupRequest, isUserExists })(SignupForm);
   // export default SignUpForm

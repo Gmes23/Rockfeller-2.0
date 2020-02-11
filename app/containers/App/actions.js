@@ -70,12 +70,12 @@ export function listresultsLoadingError(error) {
 
 import {
    SET_USER,
-    CLEAR_USER,
- VERIFY_USER
+   CLEAR_USER,
+   VERIFY_USER
 } from './constants';
 
 
-export function setUser (userInfo, Auth) {
+export function setUser(userInfo, Auth) {
   return {
     type: SET_USER,
     userInfo,
@@ -83,16 +83,13 @@ export function setUser (userInfo, Auth) {
   }
 }
 
-export function registerUser ( userInfo ) {
-  fetch('/api/user/register', {
-    credentials: 'include',
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ userInfo })
+export function registerUser (userInfo) {
+  return fetch('/api/users/register')
+  .then((response) => {
+    return console.log(response, 'this is response from registerUser')
+    // return response.json();
   })
-  .then(res => res.json())
-  .then(({ userInfo, isAuth }) => dispatch(setUser(userInfo, isAuth)))
-  .catch(err => console.log(err))
+  .then((myJson) => {
+    console.log(myJson);
+  });
 }
