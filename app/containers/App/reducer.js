@@ -9,7 +9,11 @@
 
 
 import produce from 'immer';
+// For the Homepage SearchBar, this loads events for tickets
 import { LOAD_LIST_RESULTS, LOAD_LIST_RESULTS_SUCCESS, LOAD_LIST_RESULTS_ERROR } from './constants';
+// For User Auth, this checks if the user is valid for either register or log in 
+import { SET_USER, CLEAR_USER, VERIFY_USER } from './constants';
+
 
 // The initial state of the App
 export const initialState = {
@@ -19,6 +23,9 @@ export const initialState = {
   searchData: {
     list: false,
   },
+  // This is changes the state of the app if the user is Auth
+  isAuth: false,
+  userInfo: null,
 };
 
 /* eslint-disable default-case, no-param-reassign */
@@ -41,6 +48,10 @@ const appReducer = (state = initialState, action) =>
         draft.error = action.error;
         draft.loading = false;
         break;
+
+      case SET_USER:
+        isAuth,
+        userInfo
     }
   });
 

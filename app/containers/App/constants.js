@@ -12,3 +12,8 @@
 export const LOAD_LIST_RESULTS = 'boilerplate/App/LOAD_LIST_RESULTS';
 export const LOAD_LIST_RESULTS_SUCCESS = 'boilerplate/App/LOAD_LIST_RESULTS_SUCCESS';
 export const LOAD_LIST_RESULTS_ERROR = 'boilerplate/App/LOAD_LIST_RESULTS_ERROR';
+
+// Constants for User Auth
+export const SET_USER = 'boilerplate/App/SET_USER'
+export const CLEAR_USER = 'boilerplate/App/CLEAR_USER'
+export const VERIFY_USER = 'boilerplate/App/VERIFY_USER'

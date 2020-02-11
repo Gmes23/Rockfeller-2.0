@@ -31,7 +31,6 @@ const Button = styled(Link)`
   margin-bottom: 10%;
   float: left;
   display: block;
-  color: white;
   font-weight: 600;
   border: 2px solid red;
   text-align: center;
@@ -136,6 +135,10 @@ class LeftContainer extends React.Component { // eslint-disable-line react/prefe
     return (
           <Wrapper>
             {/* { isAuthenticated ? userLinks : guestLinks } */}
+            <div>
+           <Button to='/login'>LOGIN</Button>
+           <Button to='/sign-up'> REGISTER </Button>
+       </div> 
             <LinksContainer />
             <SocialLinks />
           </Wrapper>

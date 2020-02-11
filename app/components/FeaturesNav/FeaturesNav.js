@@ -5,7 +5,6 @@ const Container = styled.div`
   position: absolute;
   top: 43px;
   left: 30.3%;
-  height: 100%;
   width: 125px;
   margin-left: 8%;
 
@@ -26,7 +25,6 @@ const Container = styled.div`
 
 const BottomContainer = styled.div`
   width: 100%;
-  height: 74%;
   padding-top: 20px;
 `;
 

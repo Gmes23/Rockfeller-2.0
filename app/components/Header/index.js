@@ -18,8 +18,6 @@ import SearchBar from '../../containers/SearchBar/SearchBar';
 
 const Right_navcontainer = styled.div`
   width: 100%;
-  height: 100%;
-  // might change to percentage later on
   padding-left: 155px;
   padding-top: 13px;
   padding-bottom: 44px;

@@ -63,3 +63,36 @@ export function listresultsLoadingError(error) {
   };
 }
 
+
+/* User Authentication
+
+*/
+
+import {
+   SET_USER,
+    CLEAR_USER,
+ VERIFY_USER
+} from './constants';
+
+
+export function setUser (userInfo, Auth) {
+  return {
+    type: SET_USER,
+    userInfo,
+    Auth
+  }
+}
+
+export function registerUser ( userInfo ) {
+  fetch('/api/user/register', {
+    credentials: 'include',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ userInfo })
+  })
+  .then(res => res.json())
+  .then(({ userInfo, isAuth }) => dispatch(setUser(userInfo, isAuth)))
+  .catch(err => console.log(err))
+}

@@ -28,18 +28,18 @@ const TextFieldGroup = ({
   </div>
 );
 
-TextFieldGroup.propTypes = {
-  field: React.PropTypes.string.isRequired,
-  value: React.PropTypes.string.isRequired,
-  label: React.PropTypes.string.isRequired,
-  error: React.PropTypes.string,
-  type: React.PropTypes.string.isRequired,
-  onChange: React.PropTypes.func.isRequired,
-  checkUserExists: React.PropTypes.func,
-};
+// TextFieldGroup.propTypes = {
+//   field: React.PropTypes.string.isRequired,
+//   value: React.PropTypes.string.isRequired,
+//   label: React.PropTypes.string.isRequired,
+//   error: React.PropTypes.string,
+//   type: React.PropTypes.string.isRequired,
+//   onChange: React.PropTypes.func.isRequired,
+//   checkUserExists: React.PropTypes.func,
+// };
 
-TextFieldGroup.defaultProps = {
-  type: 'text',
-};
+// TextFieldGroup.defaultProps = {
+//   type: 'text',
+// };
 
 export default TextFieldGroup;

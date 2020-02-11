@@ -24,7 +24,8 @@ import MobileMenu from 'components/MenuMobile/MenuMobile';
 import FeatureWidget from 'components/FeaturesNav/FeaturesNav';
 import LanguageOption from 'components/Language/LanguageOption';
 
-
+// Auth Routes 
+import SignUpForm from 'containers/SignUp/index'
 
 
 
@@ -67,6 +68,7 @@ export default function App() {
         <Route path="/404" component={NotFoundPage} />
         <Route path="/FAQ" component={FAQpage} />
         <Route path="/contact" component={ContactPage} />
+        <Route path="/sign-up" component={SignUpForm} />
 
       </Switch>
       {/* <Footer /> */}
