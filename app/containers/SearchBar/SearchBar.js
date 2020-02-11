@@ -317,9 +317,6 @@ export function SearchBar({
     if (searchvalue && searchvalue.length > 0) onSubmitForm();
   }, []);
 
-  // useEffect(() => {
-  //    onSubmitForm();
-  // }, []);
 
   const reposListProps = {
     loading,
