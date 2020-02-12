@@ -84,7 +84,14 @@ export function setUser(userInfo, Auth) {
 }
 
 export function registerUser (userInfo) {
-  return fetch('/api/users/register')
+  return fetch('/api/users/register', {
+    credentials: 'include',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ userInfo })
+  })
   .then((response) => {
     return console.log(response, 'this is response from registerUser')
     // return response.json();

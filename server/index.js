@@ -16,14 +16,9 @@ const app = express();
 
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here
 // app.use('/api', myApi);
-
-// api for user verification
-const userRouter = require('./api/users');
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
-
-
-app.use('/api/users', userRouter);
+app.use('/api', require('./api'));
 
 
 // In production we need to pass these values in instead of relying on webpack
