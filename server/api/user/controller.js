@@ -18,6 +18,9 @@ module.exports = {
     next()
   },
   create: (req, res, next) => {
+    // console.log(req ,'user from 22 ')
+
+    // console.log(req.body ,'user from 22 ')
     const { user } = req.body
     const salt = bcrypt.genSaltSync()
     const hash = bcrypt.hashSync(user.password, salt)
@@ -41,9 +44,11 @@ module.exports = {
     }
   },
   logout: (req, res, next) => {
+    console.log("is it hitting");
     req.logout()
     res.locals.data.user = null
     res.locals.data.isAuth = false
+    console.log("hitting logout123")
     next()
   }
 }

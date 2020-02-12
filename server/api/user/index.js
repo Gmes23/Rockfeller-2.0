@@ -35,5 +35,4 @@ userRouter.post('/login', shouldBeLoggedOut, passport.authenticate('local', {
 }))
 
 
-
 module.exports = userRouter

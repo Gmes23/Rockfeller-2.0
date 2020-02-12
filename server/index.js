@@ -2,10 +2,10 @@
 
 const express = require('express');
 const logger = require('./logger');
-
 const argv = require('./argv');
 const port = require('./port');
 const setup = require('./middlewares/frontendMiddleware');
+const passport = require('passport')
 const isDev = process.env.NODE_ENV !== 'production';
 const ngrok =
   (isDev && process.env.ENABLE_TUNNEL) || argv.tunnel
@@ -16,15 +16,21 @@ const app = express();
 
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here
 // app.use('/api', myApi);
-const bodyParser = require('body-parser');
-app.use(bodyParser.json());
-app.use('/api', require('./api'));
 
+
+
+
+app.use(require('cookie-parser')());
+app.use(require('body-parser').urlencoded({ extended: true }));
+app.use(require('body-parser').json());
+app.use(require('express-session')({
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 // app using passport for authentication
-// const session = require('express-session')
-const passport = require('passport')
-app.use(passport.initialize())
-app.use(passport.session())
 
 
 app.use((req, res, next) => {
@@ -32,6 +38,7 @@ app.use((req, res, next) => {
   next()
 })
 
+app.use('/api', require('./api'));
 
 // In production we need to pass these values in instead of relying on webpack
 setup(app, {

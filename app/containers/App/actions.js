@@ -69,9 +69,9 @@ export function listresultsLoadingError(error) {
 */
 
 import {
-   SET_USER,
-   CLEAR_USER,
-   VERIFY_USER
+  SET_USER,
+  CLEAR_USER,
+  VERIFY_USER
 } from './constants';
 
 
@@ -83,22 +83,26 @@ import {
 //   }
 // }
 
-export function registerUser (user, dispatch) {
+export function registerUser(user) {
+  // return console.log(user, ' this is user from registeruser')
   return fetch('/api/user/register', {
-      credentials: 'include',
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ user })
+    credentials: 'include',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify({ user })
+  })
+    .then(response => response.json())
+    .then(response => {
+
+      console.log(response, 'error from registeruser 99')
+
     })
-    .then(res => console.log(res, 'res from registeruser action'))
-    .then(res => res.json())
     .then(({ user, isAuth }) => dispatch(setUser(user, isAuth)))
     .catch(err => console.log(err))
 }
-
-
 
 
 /////////////
@@ -148,9 +152,9 @@ export const loginUser = ({ username, password }) => dispatch => {
     },
     body: JSON.stringify({ username, password })
   })
-  .then(res => res.json())
-  .then(({ user, isAuth }) => dispatch(setUser(user, isAuth)))
-  .catch(err => console.log(err))
+    .then(res => res.json())
+    .then(({ user, isAuth }) => dispatch(setUser(user, isAuth)))
+    .catch(err => console.log(err))
 }
 
 // export const registerUser = user => dispatch => {
@@ -163,7 +167,6 @@ export const loginUser = ({ username, password }) => dispatch => {
 //     },
 //     body: JSON.stringify({ user })
 //   })
-//   .then(res => console.log(res, 'res from registeruser action'))
 //   .then(res => res.json())
 //   .then(({ user, isAuth }) => dispatch(setUser(user, isAuth)))
 //   .catch(err => console.log(err))
@@ -171,9 +174,9 @@ export const loginUser = ({ username, password }) => dispatch => {
 
 export const logoutUser = user => dispatch => {
   fetch('/api/user/logout', { credentials: 'include' })
-  .then(res => res.json())
-  //for some reason method setUser is logging the person out instead of clearUser
-  // this is because i think when user is logged in it sets it to true 
-  .then(({ user, isAuth }) => dispatch(setUser(user, isAuth)))
-  .catch(err => console.log(err))
+    .then(res => res.json())
+    //for some reason method setUser is logging the person out instead of clearUser
+    // this is because i think when user is logged in it sets it to true 
+    .then(({ user, isAuth }) => dispatch(setUser(user, isAuth)))
+    .catch(err => console.log(err))
 }

@@ -9,7 +9,7 @@ function User({ id = null, username, password_digest, email }) {
   this.email = this._validate(email, 'email')
 }
 
-const userStatics = modelStatics(db, "users")
+const userStatics = modelStatics(db, 'users')
 userStatics.findByUserName = (username) => {
   return db.one(`
     SELECT * FROM users

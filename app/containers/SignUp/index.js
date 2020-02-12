@@ -109,6 +109,7 @@ class SignUpForm extends React.Component {
   onSubmit(evt) {
     evt.preventDefault();
     const user = this.state;
+    // console.log(user, ' this is user from obsubmit 112')
     registerUser(user)
 
     //   if (this.isValid()) {
