@@ -20,6 +20,18 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use('/api', require('./api'));
 
+// app using passport for authentication
+// const session = require('express-session')
+const passport = require('passport')
+app.use(passport.initialize())
+app.use(passport.session())
+
+
+app.use((req, res, next) => {
+  res.locals.data = {}
+  next()
+})
+
 
 // In production we need to pass these values in instead of relying on webpack
 setup(app, {

@@ -6,4 +6,7 @@ const apiRouter = express.Router()
 // all the utils for the user route 
 apiRouter.use('/users', require('./users'));
 
+apiRouter.use('/user', require('./user'));
+
+
 module.exports = apiRouter

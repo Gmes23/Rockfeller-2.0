@@ -25,7 +25,7 @@ export const initialState = {
   },
   // This is changes the state of the app if the user is Auth
   isAuth: false,
-  userInfo: null,
+  user: null,
 };
 
 /* eslint-disable default-case, no-param-reassign */
@@ -50,8 +50,17 @@ const appReducer = (state = initialState, action) =>
         break;
 
       case SET_USER:
-        isAuth,
-        userInfo
+        user,
+          isAuth
+        break;
+
+      case CLEAR_USER:
+        return {
+          user: null,
+          isAuth: false
+        }
+      default:
+        return state
     }
   });
 

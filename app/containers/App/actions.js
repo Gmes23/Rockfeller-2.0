@@ -75,28 +75,105 @@ import {
 } from './constants';
 
 
-export function setUser(userInfo, Auth) {
-  return {
-    type: SET_USER,
-    userInfo,
-    Auth
-  }
+// export function setUser(userInfo, Auth) {
+//   return {
+//     type: SET_USER,
+//     userInfo,
+//     Auth
+//   }
+// }
+
+export function registerUser (user, dispatch) {
+  return fetch('/api/user/register', {
+      credentials: 'include',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ user })
+    })
+    .then(res => console.log(res, 'res from registeruser action'))
+    .then(res => res.json())
+    .then(({ user, isAuth }) => dispatch(setUser(user, isAuth)))
+    .catch(err => console.log(err))
 }
 
-export function registerUser (userInfo) {
-  return fetch('/api/users/register', {
+
+
+
+/////////////
+/////////////
+
+/////////////
+
+/////////////
+
+/////////////
+
+/////////////
+
+/////////////
+
+
+
+
+
+
+export const setUser = (user, isAuth) => ({
+  type: SET_USER,
+  user,
+  isAuth
+})
+
+// i use this method before but i did not invoke the user, isAuth there the function
+// however i think when the these has a user and they are auth this if the prior
+// functions gets called it will clear the user
+export const clearUser = () => ({
+  type: CLEAR_USER
+})
+
+export const verifyUser = () => dispatch => {
+  fetch('/api/user/verify', { credentials: 'include' })
+    .then(res => res.json())
+    .then(({ user, isAuth }) => dispatch(setUser(user, isAuth)))
+    .catch(err => console.log(err))
+}
+
+export const loginUser = ({ username, password }) => dispatch => {
+  fetch('/api/user/login', {
     credentials: 'include',
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ userInfo })
+    body: JSON.stringify({ username, password })
   })
-  .then((response) => {
-    return console.log(response, 'this is response from registerUser')
-    // return response.json();
-  })
-  .then((myJson) => {
-    console.log(myJson);
-  });
+  .then(res => res.json())
+  .then(({ user, isAuth }) => dispatch(setUser(user, isAuth)))
+  .catch(err => console.log(err))
+}
+
+// export const registerUser = user => dispatch => {
+//   console.log(user, 'user from registeruser action' )
+//   fetch('/api/user/register', {
+//     credentials: 'include',
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({ user })
+//   })
+//   .then(res => console.log(res, 'res from registeruser action'))
+//   .then(res => res.json())
+//   .then(({ user, isAuth }) => dispatch(setUser(user, isAuth)))
+//   .catch(err => console.log(err))
+// }
+
+export const logoutUser = user => dispatch => {
+  fetch('/api/user/logout', { credentials: 'include' })
+  .then(res => res.json())
+  //for some reason method setUser is logging the person out instead of clearUser
+  // this is because i think when user is logged in it sets it to true 
+  .then(({ user, isAuth }) => dispatch(setUser(user, isAuth)))
+  .catch(err => console.log(err))
 }

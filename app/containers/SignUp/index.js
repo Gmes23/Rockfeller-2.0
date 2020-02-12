@@ -108,8 +108,8 @@ class SignUpForm extends React.Component {
 
   onSubmit(evt) {
     evt.preventDefault();
-    const userInfo = this.state;
-    registerUser(userInfo)
+    const user = this.state;
+    registerUser(user)
 
     //   if (this.isValid()) {
     //     this.setState({ errors: {}, isLoading: true });
@@ -137,6 +137,7 @@ class SignUpForm extends React.Component {
               // error={errors.username}
               label="Username"
               onChange={this.onChange}
+              placeholder="username"
               // checkUserExists={this.checkUserExists}
               value={this.state.username}
               field="username"
@@ -146,8 +147,10 @@ class SignUpForm extends React.Component {
           <InputDiv>
             <TextFieldGroup
               // error={errors.email}
-              label="Email"
+              label="email"
               onChange={this.onChange}
+              placeholder="email"
+               type="text"
               // checkUserExists={this.checkUserExists}
               value={this.state.email}
               field="email"
@@ -160,6 +163,7 @@ class SignUpForm extends React.Component {
               label="Password"
               onChange={this.onChange}
               value={this.state.password}
+              placeholder="password"
               field="password"
               type="password"
             />
@@ -201,7 +205,7 @@ class SignUpForm extends React.Component {
 // export default SignupForm;
 
 const mapDispatchToProps = dispatch => ({
-  registerUser: (userInfo) => dispatch(registerUser(userInfo))
+  registerUser: (user) => dispatch(registerUser(user))
 })
 
 export default connect(mapDispatchToProps, { registerUser })(SignUpForm);
