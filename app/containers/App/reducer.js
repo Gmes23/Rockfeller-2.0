@@ -23,7 +23,7 @@ export const initialState = {
   searchData: {
     list: false,
   },
-  // This is changes the state of the app if the user is Auth
+  // This changes the state of the app if the user is Auth
   isAuth: false,
   user: null,
 };

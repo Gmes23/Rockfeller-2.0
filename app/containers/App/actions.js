@@ -2,7 +2,7 @@
 //  * App Actions
 //  *
 //  * Actions change things in your application
-//  * Since this boilerplate uses a uni-directional data flow, specifically redux,
+//  * This app uses a uni-directional data flow, specifically redux,
 //  * we have these actions which are the only way your application interacts with
 //  * your application state. This guarantees that your state is up to date and nobody
 //  * messes it up weirdly somewhere.
@@ -38,8 +38,6 @@ export function loadListResults() {
  *
  * @param  {array} listresults The ticketmaster data
  * @param  {string} searchvalue The current searchvalue
- *
- * @return {object}      An action object with a type of LOAD_REPOS_SUCCESS passing the repos
  */
 export function listresultsLoaded(listresults, searchvalue) {
   return {
@@ -53,8 +51,6 @@ export function listresultsLoaded(listresults, searchvalue) {
  * Dispatched when loading the result data fails
  *
  * @param  {object} error The error
- *
- * @return {object}       An action object with a type of LOAD_REPOS_ERROR passing the error
  */
 export function listresultsLoadingError(error) {
   return {
@@ -64,8 +60,8 @@ export function listresultsLoadingError(error) {
 }
 
 
-/* User Authentication
-
+/* 
+  User Authentication
 */
 
 import {
@@ -74,86 +70,6 @@ import {
   VERIFY_USER
 } from './constants';
 
-
-// export function setUser(userInfo, Auth) {
-//   return {
-//     type: SET_USER,
-//     userInfo,
-//     Auth
-//   }
-// }
-
-// export function registerUser(user) {
-//   return fetch('/api/user/register', {
-//     credentials: 'include',
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       'Accept': 'application/json'
-//     },
-//     body: JSON.stringify({ user })
-//   })
-//     .then(response => response.json())
-//     // .then(({ user, isAuth }) => dispatch(setUser(user, isAuth)))
-//     .then(response => {
-//       return dispatch(setUser(response.user, response.isAuth))
-//     })
-//     // .then(({ user, isAuth }) => dispatch(setUser(user, isAuth)))
-//     .catch(err => console.log(err))
-// }
-
-
-
-/////////////
-/////////////
-
-/////////////
-
-/////////////
-
-/////////////
-
-/////////////
-
-/////////////
-
-
-
-// export const setUser = function setUser(user, isAuth) {
-//   return {
-//     type: SET_USER,
-//     user: user,
-//     isAuth: isAuth
-//   }
-// }
-
-// fetch('/api/user/register', {
-//   credentials: 'include',
-//   method: 'POST',
-//   headers: {
-//     'Content-Type': 'application/json'
-//   },
-//   body: JSON.stringify({ user })
-// })
-// .then(response => response.json())
-// .then(loginObj => {
-//   console.log(loginObj.user, 'res from 173 registeruser')
-//   dispatch(setUser(var user = loginObj.user, var isAuth = loginObj.isAuth))
-// })
-// .catch(err => console.log(err))
-
-// export const setUser = (user, isAuth) => ( console.log(user, isAuth, 'setuser is hitting'),{
-//   type: SET_USER,
-//   user,
-//   isAuth
-// })
-
-
-// export const setUser = (userInfo) => ({
-//   type: SET_USER,
-//   user: userInfo.user,
-//   isAuth: userInfo.isAuth
-// })
 
 export const setUser = (user, isAuth) => ({
   type: SET_USER,
@@ -186,22 +102,6 @@ export const loginUser = ({ username, password }) => dispatch => {
     .catch(err => console.log(err))
 }
 
-// export const registerUser = user => dispatch => {
-//   fetch('/api/user/register', {
-//     credentials: 'include',
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify({ user })
-//   })
-//   .then(res => res.json())
-//   .then(res => console.log(res.user, 'res from 173 registeruser'))
-
-//   .then((res) => dispatch(setUser(res)))
-//   .catch(err => console.log(err))
-// }
-
 export const registerUser = user => dispatch => {
   fetch('/api/user/register', {
     credentials: 'include',
@@ -215,38 +115,6 @@ export const registerUser = user => dispatch => {
   .then(({ user, isAuth }) => dispatch(setUser(user, isAuth)))
   .catch(err => console.log(err))
 }
-// export const registerUser = user => dispatch => {
-//   fetch('/api/user/register', {
-//     credentials: 'include',
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify({ user })
-//   })
-//   .then(res => res.json())
-//   .then((userInfo) => dispatch(setUser(userInfo)))
-//   .catch(err => console.log(err))
-// }
-
-
-
-// export const registerUser = user => dispatch => {
-//   fetch('/api/user/register', {
-//     credentials: 'include',
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify({ user })
-//   }).then(response => response.json()).then(loginObj => {
-//       console.log(loginObj.user, 'res from 173 registeruser')
-//       dispatch(setUser(var user = loginObj.user, var isAuth = loginObj.isAuth))
-// })
-// .catch (err => console.log(err))
-// }
-
-
 
 export const logoutUser = user => dispatch => {
   fetch('/api/user/logout', { credentials: 'include' })
