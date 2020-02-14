@@ -142,12 +142,24 @@ import {
 // })
 // .catch(err => console.log(err))
 
-export const setUser = (user, isAuth) => ( console.log(user, isAuth, 'setuser is hitting'),{
+// export const setUser = (user, isAuth) => ( console.log(user, isAuth, 'setuser is hitting'),{
+//   type: SET_USER,
+//   user,
+//   isAuth
+// })
+
+
+// export const setUser = (userInfo) => ({
+//   type: SET_USER,
+//   user: userInfo.user,
+//   isAuth: userInfo.isAuth
+// })
+
+export const setUser = (user, isAuth) => ({
   type: SET_USER,
   user,
   isAuth
 })
-
 
 export const clearUser = () => ({
   type: CLEAR_USER
@@ -190,7 +202,6 @@ export const loginUser = ({ username, password }) => dispatch => {
 //   .catch(err => console.log(err))
 // }
 
-
 export const registerUser = user => dispatch => {
   fetch('/api/user/register', {
     credentials: 'include',
@@ -201,9 +212,22 @@ export const registerUser = user => dispatch => {
     body: JSON.stringify({ user })
   })
   .then(res => res.json())
-  .then((res1) => dispatch(setUser(res1.user,res1.isAuth)))
+  .then(({ user, isAuth }) => dispatch(setUser(user, isAuth)))
   .catch(err => console.log(err))
 }
+// export const registerUser = user => dispatch => {
+//   fetch('/api/user/register', {
+//     credentials: 'include',
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({ user })
+//   })
+//   .then(res => res.json())
+//   .then((userInfo) => dispatch(setUser(userInfo)))
+//   .catch(err => console.log(err))
+// }
 
 
 
