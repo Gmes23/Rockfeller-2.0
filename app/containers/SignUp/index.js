@@ -108,9 +108,10 @@ class SignUpForm extends React.Component {
 
   onSubmit(evt) {
     evt.preventDefault();
-    const user = this.state;
+    this.props.registerUser(this.state)
+    // const user = this.state;
     // console.log(user, ' this is user from obsubmit 112')
-    registerUser(user)
+    // registerUser(user)
 
     //   if (this.isValid()) {
     //     this.setState({ errors: {}, isLoading: true });
@@ -194,22 +195,13 @@ class SignUpForm extends React.Component {
   }
 }
 
-//   SignupForm.propTypes = {
-//     userSignupRequest: React.PropTypes.func.isRequired,
-//     isUserExists: React.PropTypes.func.isRequired
-//   }
 
-//   SignupForm.contextTypes = {
-//     router: React.PropTypes.object.isRequired
-//   }
-
-// export default SignupForm;
 
 const mapDispatchToProps = dispatch => ({
   registerUser: (user) => dispatch(registerUser(user))
 })
 
+
 export default connect(mapDispatchToProps, { registerUser })(SignUpForm);
 
-  // export default connect(null, { userSignupRequest, isUserExists })(SignupForm);
-  // export default SignUpForm
+ 
