@@ -1,105 +1,17 @@
-// /**
-//  * RepoListItem
-//  *
-//  * Lists the name and the issue count of a repository
-//  */
-
-// import React from 'react';
-// import PropTypes from 'prop-types';
-// import { connect } from 'react-redux';
-// import { createStructuredSelector } from 'reselect';
-// import { FormattedNumber } from 'react-intl';
-
-// import { makeSelectCurrentUser } from 'containers/App/selectors';
-// import ListItem from 'components/ListItem';
-// import IssueIcon from './IssueIcon';
-// import IssueLink from './IssueLink';
-// import RepoLink from './RepoLink';
-// import Wrapper from './Wrapper';
-
-// export function RepoListItem(props) {
-//   const { item } = props;
-//   let nameprefix = '';
-
-//   // If the repository is owned by a different person than we got the data for
-//   // it's a fork and we should show the name of the owner
-//   if (item.owner.login !== props.currentUser) {
-//     nameprefix = `${item.owner.login}/`;
-//   }
-
-//   // Put together the content of the repository
-//   const content = (
-//     <Wrapper>
-//       <RepoLink href={item.html_url} target="_blank">
-//         {nameprefix + item.name}
-//       </RepoLink>
-//       <IssueLink href={`${item.html_url}/issues`} target="_blank">
-//         <IssueIcon />
-//         <FormattedNumber value={item.open_issues_count} />
-//       </IssueLink>
-//     </Wrapper>
-//   );
-
-//   // Render the content into a list item
-//   return <ListItem key={`repo-list-item-${item.full_name}`} item={content} />;
-// }
-
-// RepoListItem.propTypes = {
-//   item: PropTypes.object,
-//   currentUser: PropTypes.string,
-// };
-
-// export default connect(
-//   createStructuredSelector({
-//     currentUser: makeSelectCurrentUser(),
-//   }),
-// )(RepoListItem);
-
-
-
-/* NEWEW PAGE 
-
-/* NEWEW PAGE 
-/* NEWEW PAGE 
-/* NEWEW PAGE 
-/* NEWEW PAGE 
-/* NEWEW PAGE 
-/* NEWEW PAGE 
-/* NEWEW PAGE 
-/* NEWEW PAGE 
-*/
-
-
-
-
-
-
-
-
-
-
-
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { FormattedNumber } from 'react-intl';
-
-// import { makeSelectCurrentSearchValue } from 'containers/App/selectors';
 import ListItem from 'components/ListItem';
 import IssueIcon from './IssueIcon';
 import IssueLink from './IssueLink';
 import RepoLink from './RepoLink';
 import Wrapper from './Wrapper';
-
-
 import { makeSelectCurrentUser } from 'containers/App/selectors';
-
-
 import styled from 'styled-components';
 
 import Img from './Img';
 import { makeSelectCurrentSearchValue } from '../App/selectors';
-// import PlaceholderB from './placeholderB.jpg'
 
 
 const Container = styled.div`
@@ -315,7 +227,7 @@ const months = [ "January", "February", "March", "April", "May", "June",
    "July", "August", "September", "October", "November", "December" ];
 
 
-export class RepoListItem extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+export class EventListItem extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   //Hides some of the ticket data, expands when clicked on
   constructor(props) {
       super(props)
@@ -423,14 +335,9 @@ export class RepoListItem extends React.PureComponent { // eslint-disable-line r
   }
 }
 
-// RepoListItem.propTypes = {
-//   item: React.PropTypes.object,
-//   currentSearchValue: React.PropTypes.string,
-// };
-
 
 export default connect(
   createStructuredSelector({
     currentSearchValue: makeSelectCurrentSearchValue(),
   }),
-)(RepoListItem);
+)(EventListItem);

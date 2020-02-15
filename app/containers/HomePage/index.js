@@ -17,7 +17,7 @@ import {
   makeSelectLoading,
   makeSelectError,
 } from 'containers/App/selectors';
-import ReposList from 'components/ReposList';
+import EventsList from 'components/EventsList';
 import reducer from './reducer';
 import saga from './saga';
 
@@ -37,7 +37,7 @@ export function HomePage({
   useInjectSaga({ key, saga });
 
 
-  const reposListProps = {
+  const eventsListProps = {
     loading,
     error,
     listresults,
@@ -55,7 +55,7 @@ export function HomePage({
       <div>
         <ActionBar />
 
-        <ReposList {...reposListProps} />
+        <EventsList {...eventsListProps} />
 
       </div>
     </div>
