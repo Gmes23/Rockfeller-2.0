@@ -18,9 +18,6 @@ module.exports = {
     next()
   },
   create: (req, res, next) => {
-    // console.log(req ,'user from 22 ')
-
-    // console.log(req.body ,'user from 22 ')
     const { user } = req.body
     const salt = bcrypt.genSaltSync()
     const hash = bcrypt.hashSync(user.password, salt)
@@ -35,7 +32,7 @@ module.exports = {
           if (err) return next(err)
           res.locals.data.user = user
           res.locals.data.isAuth = true
-          return next()
+          return next() 
         })
       })
       .catch(err => next(err))

@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux'
+
 
 //Route Components
 import HomePage from 'containers/HomePage/Loadable';
@@ -27,6 +29,8 @@ import LanguageOption from 'components/Language/LanguageOption';
 // Auth Routes 
 import SignUpForm from 'containers/SignUp/index'
 
+// Actions 
+import { verifyUser } from './actions'
 
 
 const AppWrapper = styled.div`
@@ -48,8 +52,18 @@ const MobileWrapper = styled.div`
     display: flex;
   }
 `;
+class App extends Component {
+  componentDidMount() {
+    this.props.verifyUser()
+  }
 
-export default function App() {
+  render() {
+    // const {
+    //   auth: {
+    //     isAuth
+    //   }
+    // } = this.props
+
   return (
     <AppWrapper>
         <Helmet
@@ -84,3 +98,13 @@ export default function App() {
     </AppWrapper>
   );
 }
+}
+const mapStateToProps = state => ({
+  ...state
+})
+
+const mapDispatchToProps = dispatch => ({
+  verifyUser: () => dispatch(verifyUser())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
