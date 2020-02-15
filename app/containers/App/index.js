@@ -58,11 +58,8 @@ class App extends Component {
   }
 
   render() {
-    // const {
-    //   auth: {
-    //     isAuth
-    //   }
-    // } = this.props
+    const Auth = this.props.global.isAuth
+    console.log(Auth , ' this auth ')
 
   return (
     <AppWrapper>

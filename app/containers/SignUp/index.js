@@ -169,7 +169,7 @@ class SignUpForm extends React.Component {
               field="password"
               type="password"
             />
-          </InputDiv>
+          </InputDiv> 
 
           <InputDiv>
             <TextFieldGroup

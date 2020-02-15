@@ -1,8 +1,8 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
-// import { logout } from '../../containers/SignIn/authActions';
+import { logoutUser } from '../../containers/App/actions';
+
 import styled from 'styled-components';
 
 import SocialLinks from '../SocialLinks/social_links';
@@ -51,100 +51,47 @@ const LogOutButton = styled.button`
   }
 `;
 
-
-// class LeftContainer extends React.Component { // eslint-disable-line react/prefer-stateless-function
- 
-//   logout(e) {
-//     e.preventDefault();
-//     this.props.logout();
-//   }
-
-  
-  
-//   render() {
-
-//     const { isAuthenticated } = this.props;
-
-//     const userLinks = (
-//       <div>
-//         <ProfileContainer />
-//         {/* <LogOutButton onClick={this.logout.bind(this)}> LOGOUT </LogOutButton> */}
-//         <LogOutButton> LOGOUT </LogOutButton>
-
-//       </div>
-//     );
-
-//     const guestLinks = (
-//        <div>
-//             <Button to='/login'>LOGIN</Button>
-//             <Button to='/sign-up'>REGISTER</Button>
-//        </div> 
-//     );
-
-//     return (
-//           <Wrapper>
-//             { isAuthenticated ? userLinks : guestLinks }
-//             <LinksContainer />
-//             {/* <SocialLinks /> */}
-//           </Wrapper>
-//     );
-//   }
-// }
-
-// function mapStateToProps(state) {
-//   console.log(state._root.entries[3][1].isAuthenticated);
-//   return {
-//     isAuthenticated: state._root.entries[3][1].isAuthenticated
-//   };
-// }
-
-// export default connect(mapStateToProps, { logout })(LeftContainer);
-
-
-
-/* NEWWWW COMPNENT */
 class LeftContainer extends React.Component { // eslint-disable-line react/prefer-stateless-function
- 
-  // logout(e) {
-  //   e.preventDefault();
-  //   this.props.logout();
-  // }
 
-  
-  
+  logout(e) {
+    e.preventDefault();
+    this.props.logoutUser(this.state);
+  }
+
   render() {
 
-    // const { isAuthenticated } = this.props;
+    const isAuthenticated = this.props.global.isAuth
 
-    // const userLinks = (
-    //   <div>
-    //     <ProfileContainer />
-    //     {/* <LogOutButton onClick={this.logout.bind(this)}> LOGOUT </LogOutButton> */}
-    //     <LogOutButton> LOGOUT </LogOutButton>
+    const userLinks = (
+      <div>
+        <ProfileContainer />
+        <LogOutButton onClick={this.logout.bind(this)}> LOGOUT </LogOutButton>
+      </div>
+    );
 
-    //   </div>
-    // );
-
-    // const guestLinks = (
-    //    <div>
-    //         <Button to='/login'>LOGIN</Button>
-    //         <Button to='/sign-up'>REGISTER</Button>
-    //    </div> 
-    // );
+    const guestLinks = (
+      <div>
+        <Button to='/login'>LOGIN</Button>
+        <Button to='/sign-up'>REGISTER</Button>
+      </div>
+    );
 
     return (
-          <Wrapper>
-            {/* { isAuthenticated ? userLinks : guestLinks } */}
-            <div>
-           <Button to='/login'>LOGIN</Button>
-           <Button to='/sign-up'> REGISTER </Button>
-       </div> 
-            <LinksContainer />
-            <SocialLinks />
-          </Wrapper>
+      <Wrapper>
+        {isAuthenticated ? userLinks : guestLinks}
+        <LinksContainer />
+        <SocialLinks />
+      </Wrapper>
     );
   }
 }
 
+const mapStateToProps = state => ({
+  ...state
+})
 
-export default LeftContainer;
+const mapDispatchToProps = dispatch => ({
+  logoutUser: () => dispatch(logoutUser())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(LeftContainer);
