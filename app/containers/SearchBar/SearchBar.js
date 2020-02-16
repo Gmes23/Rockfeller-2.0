@@ -120,7 +120,7 @@ export function SearchBar({
               </label>
             </form>
              <InputIcon>
-                  <Icon_eyeglass className="material-icons">search</Icon_eyeglass>
+                  <Icon_eyeglass onClick={onSubmitForm} className="material-icons">search</Icon_eyeglass>
              </InputIcon>
         </SearchWrapper>
       </div>

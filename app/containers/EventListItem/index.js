@@ -253,8 +253,8 @@ export class EventListItem extends React.PureComponent { // eslint-disable-line 
     var month = months[parseInt(dateObj.split('-')[1]) - 1];
 
     // converting currency json 
-    // var minPrice = parseInt(item.priceRanges[0].min);
-    // var maxPrice = parseInt(item.priceRanges[0].max);
+    var minPrice = parseInt(item.priceRanges[0].min);
+    var maxPrice = parseInt(item.priceRanges[0].max);
 
     
     // search threw json array and use the high def picture as the img url src
@@ -265,13 +265,19 @@ export class EventListItem extends React.PureComponent { // eslint-disable-line 
         }
     }
 
-    // if (items.pleaseNote == false ) {
-    //   return false
+    // if (item.pleaseNote == undefined ) {
+    //   return undefined
     // } else {
-    //   return items.pleaseNote
+    //   return item.pleaseNote
     // }
 
-    
+  //   var checkObj = function(obj) {
+  //     if(obj != null || obj != undefined) {
+  //         return obj;
+  //     } else {
+  //         return "Unavailable";
+  //     }
+  // };
  
     // Put together the content of the search
     const content = (
@@ -304,14 +310,14 @@ export class EventListItem extends React.PureComponent { // eslint-disable-line 
                 </DescriptionTitle>
                 <ResultDescriptionPCont> 
                   <ResultDescription_P>
-                     {/* {item._embedded.attractions[0].name} will be performing at {item._embedded.venues[0].name} for the {item.promoter.name} event */}
+                     {item._embedded.attractions[0].name} will be performing at {item._embedded.venues[0].name} for the {item.promoter.name} event
                   </ResultDescription_P>
                   <PleaseNote>
                      <SpanRed> Please Note: </SpanRed>{item.pleaseNote}
                   </PleaseNote>
                   <BuyDiv>
                     <DoorsPrice>
-                      {/* Ticket:  ${minPrice} - ${maxPrice} */}
+                      Ticket:  ${minPrice} - ${maxPrice}
                       <br />
                       Doors: {item.dates.start.localTime}
                     </DoorsPrice>
@@ -330,7 +336,7 @@ export class EventListItem extends React.PureComponent { // eslint-disable-line 
 
     // Render the content into a list item
     return (
-      <ListItem key={`repo-list-item-${item._embedded.events}`} item={content} />
+      <ListItem key={`item-list-item-${item._embedded.events}`} item={content} />
     );
   }
 }
