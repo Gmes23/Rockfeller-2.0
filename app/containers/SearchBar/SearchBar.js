@@ -22,10 +22,10 @@ const SearchWrapper = styled.div`
   padding-left: 4%;
   padding-right: 4%;
   padding-top: 30px;
-  padding-bottom: 60px;
+  padding-bottom: 63px;
   height: 200px;
   display: flex;
-  @media screen and (max-width: 460px) {
+  @media screen and (max-width: 480px) {
     width: 82%;
     position: absolute;
     top: -21px;
@@ -33,7 +33,7 @@ const SearchWrapper = styled.div`
     height: 200px;
     padding-left: 4%;
     padding-right: 4%;
-    padding-bottom: 60px;
+    padding-bottom: 50px;
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -44,9 +44,13 @@ const SearchWrapper = styled.div`
     display: -webkit-flex;
     display: flex;
   }
+  @media screen and (max-width: 375px) {
+    padding-bottom: 51px;
+  }
 `;
 
 const InputSearch = styled.input`
+  background: transparent;
   width: 90%;
   height: 100%;
   text-align: end;

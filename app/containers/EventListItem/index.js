@@ -1,13 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { FormattedNumber } from 'react-intl';
 import ListItem from 'components/ListItem';
-import IssueIcon from './IssueIcon';
-import IssueLink from './IssueLink';
-import RepoLink from './RepoLink';
-import Wrapper from './Wrapper';
-import { makeSelectCurrentUser } from 'containers/App/selectors';
 import styled from 'styled-components';
 
 import Img from './Img';
@@ -30,11 +24,12 @@ const DateResultWrap = styled.div`
   padding-top: 30px;
 
 
-  @media screen and (max-width: 360px) {
+  @media screen and (max-width: 480px) {
     height: 110px;
     width: 20%;
     padding-top: 10px;
   }
+  
 `;
 
 const ResultImgWrap = styled.div`
@@ -42,8 +37,8 @@ const ResultImgWrap = styled.div`
   width: 55%;
 
 
-  @media screen and (max-width: 360px) {
-    width: 80%; 
+  @media screen and (max-width: 480px) {
+    width: 100%; 
   }
 `;
 
@@ -54,6 +49,10 @@ const ResultDescriptionWrap = styled.div`
 
 
   @media screen and (max-width: 360px) {
+    display: none; 
+  }
+
+  @media screen and (max-width: 480px) {
     display: none; 
   }
 `;
@@ -103,8 +102,10 @@ const ResultDescriptionPCont = styled.div`
   margin: 0px;
   font-size: 3.3em;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
-  @media screen and (max-width: 360px) {
+  @media screen and (max-width: 480px) {
+    font-size: 2em;    
+  }
+  @media screen and (min-width: 360px) {
     font-size: 2em;    
   }
  `;
@@ -115,8 +116,10 @@ const ResultDescriptionPCont = styled.div`
   font-weight: 600;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: .8em;
-
-  @media screen and (max-width: 360px) {
+  @media screen and (max-width: 480px) {
+    font-size: .5em;
+  } 
+  @media screen and (min-width: 360px) {
     font-size: .5em;
   }  
  `;
@@ -129,10 +132,12 @@ const ResultDescriptionPCont = styled.div`
   font-weight: 400;
   font-size: 12px;
   margin-top: 10px;
-
-  @media screen and (max-width: 360px) {
+  @media screen and (max-width: 480px) {
     font-size: .5em;
-   }  
+  } 
+  // @media screen and (min-width: 360px) {
+  //   font-size: .5em;
+  //  }  
  `;
 
   const DateResult_p3 = styled.p`
@@ -142,7 +147,7 @@ const ResultDescriptionPCont = styled.div`
   font-style: normal;
   font-weight: 400;
 
-  @media screen and (max-width: 360px) {
+  @media screen and (min-width: 360px) {
     font-size: .5em;
    }  
  `;
@@ -158,7 +163,7 @@ const SpanDiv = styled.div`
   width: 100%;
   padding-right: 15%;
 
-  @media screen and (max-width: 360px) {
+  @media screen and (min-width: 360px) {
     padding-right: 30%;
   }  
 `;
@@ -287,7 +292,6 @@ export class EventListItem extends React.PureComponent { // eslint-disable-line 
          className={this.state.expandedTicket ? 'expanded-ticket' : 'normal-ticket'}
           onClick={this.toggleExpandedTicket}
       >
-
         <DateResultWrap>
               <DateResult_h1 >
                 {date}
@@ -321,15 +325,12 @@ export class EventListItem extends React.PureComponent { // eslint-disable-line 
                       <br />
                       Doors: {item.dates.start.localTime}
                     </DoorsPrice>
-
                     <BuyButton>
                      <a href={item.url}> BUY </a>
                    </BuyButton>
- 
                   </BuyDiv>
                 </ResultDescriptionPCont>
             </ResultDescriptionWrap>
-
         </Container>
 
     );

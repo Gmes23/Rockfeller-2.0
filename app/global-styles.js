@@ -42,8 +42,12 @@ h1 {
 .normal-ticket {
   height: 210px;
 
-  @media screen and (max-width: 360px) {
-   height: 110px;
+//   @media screen and (max-width: 360px) {
+//    height: 110px;
+//  }
+
+ @media screen and (max-width: 375px) {
+  height: 110px;
  }
 }
 
@@ -52,6 +56,12 @@ a, a:hover, a:active, a:visited {
   cursor: pointer;
   color: inherit;
 }
+
+form {
+  background-color: transparent !important;
+}
+
+
 `;
 
 export default GlobalStyle;

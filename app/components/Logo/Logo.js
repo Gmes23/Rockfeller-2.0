@@ -11,10 +11,9 @@ const My_logo = styled(Link)`
   text-decoration: none;
   outline: 0;
   color: inherit;
-  margin: 2%;
-  @media screen and (max-width: 360px) {
-    width: 90px;
-  }
+  // @media screen and (max-width: 360px) {
+  //   font-size: .8em;
+  // }
 `;
 
 const Logo_h1 = styled.h1`
@@ -23,10 +22,10 @@ const Logo_h1 = styled.h1`
   font-weight: 600;
   margin-bottom: 10px;
   font-size: 2.37em;
-  @media screen and (max-width: 360px) {
-    font-size: 1.6em;
-    line-height: 46px;
-  }
+  font-size: calc(21px + (26 - 14) * ((100vw - 300px) / (2000 - 300)));
+  // @media screen and (max-width: 375px) {
+  //   font-size: 1.4em;
+  // }
 `;
 
 const Span_text = styled.span`

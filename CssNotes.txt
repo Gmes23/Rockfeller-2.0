@@ -1,0 +1,9 @@
+media queries {
+670px
+If the browser window is 600px or smaller, the background color will be lightblue:
+(max-width: 600px
+}
+
+@media screen and (max-width: 1020px) { /* Large Desktop */ }
+@media screen and (max-width: 780px) { /* tablet */ }
+@media screen and (max-width: 480px) { /* mobile */ }

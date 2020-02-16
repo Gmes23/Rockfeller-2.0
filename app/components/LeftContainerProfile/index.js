@@ -8,18 +8,17 @@ import styled from 'styled-components';
 import SocialLinks from '../SocialLinks/social_links';
 import ProfileContainer from './profile';
 import LinksContainer from './about_links';
-import { defaultMemoize } from 'reselect';
 
 
 const Wrapper = styled.div`
   position: absolute;
-  top: 250px;
+  top: 234px;
   width: 20%;
   padding-left: 4%;
   padding-right: 4%;
 
-  @media screen and (max-width: 460px) {
-    top: 20%;
+  @media screen and (max-width: 480px) {
+    top: 150px;
     width: 100%;
     height: 100px;
   }
@@ -34,8 +33,9 @@ const Button = styled(Link)`
   font-weight: 600;
   border: 2px solid red;
   text-align: center;
+  padding-top: 3.5px;
 
-  @media screen and (max-width: 460px) {
+  @media screen and (max-width: 480px) {
     margin: 8px;
     float: right;
   }
@@ -49,6 +49,10 @@ const LogOutButton = styled.button`
    &:hover {
     color: red;
   }
+`;
+
+const UserRegisterWrapper = styled.div`
+  margin: 1em;
 `;
 
 class LeftContainer extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -70,10 +74,10 @@ class LeftContainer extends React.Component { // eslint-disable-line react/prefe
     );
 
     const guestLinks = (
-      <div>
+      <UserRegisterWrapper>
         <Button to='/login'>LOGIN</Button>
         <Button to='/sign-up'>REGISTER</Button>
-      </div>
+      </UserRegisterWrapper>
     );
 
     return (

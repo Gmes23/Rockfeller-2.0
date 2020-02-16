@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  position: absolute;
   top: 43px;
   left: 30.3%;
   width: 125px;

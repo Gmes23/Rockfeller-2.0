@@ -17,6 +17,9 @@ const CurrentActions = styled.div`
   width: 100%;
   padding-left: 38%;
   display: flex;
+  @media screen and (max-width: 480px) { 
+  display: none;
+  }
 `;
 
 const UpcomingShowTextContainer = styled.div`

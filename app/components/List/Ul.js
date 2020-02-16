@@ -8,11 +8,18 @@ const Ul = styled.ul`
   padding: 0 1em;
 
 
-  @media screen and (max-width: 360px) {
-   padding-right: 0em;
-   padding-top: 0em;
-   padding-left: 1em;
-   padding-bottom: 0em; 
-  }
+  // @media screen and (min-width: 360px) {
+  //  padding-right: 0em;
+  //  padding-top: 0em;
+  //  padding-left: 1em;
+  //  padding-bottom: 0em; 
+  // }
+
+  @media only screen and (max-width: 767px) {
+    padding-right: 0em;
+    padding-top: 0em;
+    padding-left: 1em;
+    padding-bottom: 0em; 
+}
 `;
 export default Ul;

@@ -20,9 +20,7 @@ import GlobalStyle from '../../global-styles';
 import CalendarWidget from 'components/Calendar/Calendar';
 import Logo from 'components/Logo/Logo';
 import LeftContainer from 'components/LeftContainerProfile';
-// // import withProgressBar from 'components/ProgressBar';
 import MobileMenu from 'components/MenuMobile/MenuMobile';
-// import SearchBar from 'components/SearchBar/SearchBar';
 import FeatureWidget from 'components/FeaturesNav/FeaturesNav';
 import LanguageOption from 'components/Language/LanguageOption';
 
@@ -43,7 +41,6 @@ const AppWrapper = styled.div`
 
 const MobileWrapper = styled.div`
   @media screen and (max-width: 360px) {
-    position: absolute;
     top: 20%;
     height: 100px;
     width: 100%;
@@ -70,8 +67,6 @@ class App extends Component {
           { name: 'description', content: 'a ticket online store' },
         ]}
         />
-    <Logo />
-      {/* <SearchBar /> */}
       <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
@@ -82,13 +77,9 @@ class App extends Component {
         <Route path="/sign-up" component={SignUpForm} />
 
       </Switch>
-      {/* <Footer /> */}
       <GlobalStyle />
 
       <MobileWrapper>
-        <FeatureWidget />
-        <CalendarWidget />
-        <LanguageOption />
         <MobileMenu />
         <LeftContainer />
       </MobileWrapper>

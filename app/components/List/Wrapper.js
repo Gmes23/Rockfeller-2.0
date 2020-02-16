@@ -8,7 +8,7 @@ const Wrapper = styled.div`
     padding-right: 4%;
     padding-left: 10vw;
 
-    @media screen and (max-width: 360px) {
+    @media screen and (max-width: 480px) {
      padding-left: 0px;
      width: 100%;
      top: 250px;
