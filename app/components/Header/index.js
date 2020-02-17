@@ -17,10 +17,16 @@ import SearchBar from '../../containers/SearchBar/SearchBar';
 
 const Right_navcontainer = styled.div`
   width: 100%;
-  padding-left: 155px;
+  padding-left: 14vw;
   padding-top: 13px;
   padding-bottom: 44px;
   display: flex;
+  @media screen and (max-width: 1400px) {
+    padding-left: 10.5vw;
+  }
+  @media screen and (max-width: 1100px) {
+    padding-left: 8vw;
+  }
 `;
 
 class Header extends React.Component {

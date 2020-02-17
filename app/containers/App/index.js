@@ -17,12 +17,8 @@ import Footer from 'components/Footer';
 
 import GlobalStyle from '../../global-styles';
 
-import CalendarWidget from 'components/Calendar/Calendar';
-import Logo from 'components/Logo/Logo';
 import LeftContainer from 'components/LeftContainerProfile';
 import MobileMenu from 'components/MenuMobile/MenuMobile';
-import FeatureWidget from 'components/FeaturesNav/FeaturesNav';
-import LanguageOption from 'components/Language/LanguageOption';
 
 // Auth Routes 
 import SignUpForm from 'containers/SignUp/index'
@@ -78,7 +74,6 @@ class App extends Component {
 
       </Switch>
       <GlobalStyle />
-
       <MobileWrapper>
         <MobileMenu />
         <LeftContainer />

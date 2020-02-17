@@ -23,9 +23,9 @@ const Logo_h1 = styled.h1`
   margin-bottom: 10px;
   font-size: 2.37em;
   font-size: calc(21px + (26 - 14) * ((100vw - 300px) / (2000 - 300)));
-  // @media screen and (max-width: 375px) {
-  //   font-size: 1.4em;
-  // }
+  @media screen and (max-width: 340px) {
+    font-size: 20px;
+  }
 `;
 
 const Span_text = styled.span`

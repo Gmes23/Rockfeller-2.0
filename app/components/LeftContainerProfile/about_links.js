@@ -19,6 +19,9 @@ const Alink = styled(Link)`
   &:hover{
     color: rgb(254,0,0);
   }
+  @media screen and (max-width: 720px) {
+    margin: 1em;
+  }
 `;
 
 const Span = styled.span`
@@ -70,9 +73,6 @@ class LinksContainer extends Component {
               <Alink to="/contact"> Contact </Alink>
               <Span />
             </LI_list>
-            {/* <LI_list>
-              <Span />
-            </LI_list> */}
           </ Ul_links>
         </Container>
         );

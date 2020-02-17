@@ -22,6 +22,19 @@ const Wrapper = styled.div`
     width: 100%;
     height: 100px;
   }
+  @media screen and (max-width: 320px) {
+    top: 150px;
+    width: 100%;
+    height: 100px;
+    padding-left: 4%;
+  padding-right: 1%;
+  padding-top: 4%;
+  }
+  @media screen and (max-width: 780px) {
+    padding-right: unset;
+  }
+         
+
 `;
 
 const Button = styled(Link)`
@@ -39,6 +52,11 @@ const Button = styled(Link)`
     margin: 8px;
     float: right;
   }
+
+  @media screen and (max-width: 320px) {
+    margin: 8px;
+    float: right;
+  }
 `;
 
 const LogOutButton = styled.button`
@@ -53,6 +71,15 @@ const LogOutButton = styled.button`
 
 const UserRegisterWrapper = styled.div`
   margin: 1em;
+  display: grid;
+  @media screen and (max-width: 480px) {
+    margin: 1em;
+    display: block;
+   }
+  @media screen and (max-width: 375px) {
+   margin: 1em;
+   display: block;
+  }
 `;
 
 class LeftContainer extends React.Component { // eslint-disable-line react/prefer-stateless-function

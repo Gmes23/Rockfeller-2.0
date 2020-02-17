@@ -18,7 +18,8 @@ const Container = styled.div`
     display: none;
   }
 
-  @media screen and (max-width: 1168px) {
+  @media screen and (max-width: 1100px) {
+    display: none;
   }
 `;
 

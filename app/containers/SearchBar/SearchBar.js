@@ -26,7 +26,7 @@ const SearchWrapper = styled.div`
   height: 200px;
   display: flex;
   @media screen and (max-width: 480px) {
-    width: 82%;
+    width: 73.5%;
     position: absolute;
     top: -21px;
     right: 0px;
@@ -47,6 +47,26 @@ const SearchWrapper = styled.div`
   @media screen and (max-width: 375px) {
     padding-bottom: 51px;
   }
+
+  @media screen and (max-width: 680px) {
+      width: 73.5%;
+  position: absolute;
+  top: -21px;
+  right: 0px;
+  height: 200px;
+  padding-left: 4%;
+  padding-right: 4%;
+  padding-bottom: 50px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  }
 `;
 
 const InputSearch = styled.input`
@@ -66,9 +86,7 @@ const InputSearch = styled.input`
   font-weight: 100;
   margin-left: 10%;
 
-  &:hover {
-    background-color: #fff;
-  }
+  
 `;
 
 const InputIcon = styled.div`

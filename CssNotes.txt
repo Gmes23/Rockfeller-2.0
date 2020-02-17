@@ -5,5 +5,5 @@ If the browser window is 600px or smaller, the background color will be lightblu
 }
 
 @media screen and (max-width: 1020px) { /* Large Desktop */ }
-@media screen and (max-width: 780px) { /* tablet */ }
+@media screen and (max-width: 720px) { /* tablet */ }
 @media screen and (max-width: 480px) { /* mobile */ }

@@ -9,7 +9,7 @@ const Container = styled.div`
   border: solid 2px rgb(254, 0, 0);
   text-align: center;
   left: 24.4%;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 790px) {
     display: none;
   }
 `;

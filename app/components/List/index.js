@@ -28,9 +28,5 @@ function List(props) {
   );
 }
 
-// List.propTypes = {
-//   component: PropTypes.elementType.isRequired,
-//   items: PropTypes.array,
-// };
 
 export default List;
