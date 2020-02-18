@@ -105,7 +105,7 @@ const ResultDescriptionPCont = styled.div`
   @media screen and (max-width: 480px) {
     font-size: 2em;    
   }
-  @media screen and (min-width: 360px) {
+  @media screen and (max-width: 360px) {
     font-size: 2em;    
   }
  `;
@@ -119,7 +119,7 @@ const ResultDescriptionPCont = styled.div`
   @media screen and (max-width: 480px) {
     font-size: .5em;
   } 
-  @media screen and (min-width: 360px) {
+  @media screen and (max-width: 360px) {
     font-size: .5em;
   }  
  `;
@@ -147,7 +147,7 @@ const ResultDescriptionPCont = styled.div`
   font-style: normal;
   font-weight: 400;
 
-  @media screen and (min-width: 360px) {
+  @media screen and (max-width: 360px) {
     font-size: .5em;
    }  
  `;
@@ -156,7 +156,7 @@ const ResultDescriptionPCont = styled.div`
  const Span = styled.span`
   position: absolute;
   border-bottom: solid 1.5px white;
-  width: 20px;
+  width: 3.7%;
 `;
 
 const SpanDiv = styled.div`
