@@ -2,4 +2,4 @@
 rockfeller app refactored with more functionality 
 
 
-set .env in the root folder
+set .env in the root folder.
