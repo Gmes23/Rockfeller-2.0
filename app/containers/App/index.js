@@ -22,6 +22,8 @@ import MobileMenu from 'components/MenuMobile/MenuMobile';
 
 // Auth Routes 
 import SignUpForm from 'containers/SignUp/index'
+import SignInForm from 'containers/SignIn/index'
+
 
 // Actions 
 import { verifyUser } from './actions'
@@ -71,6 +73,8 @@ class App extends Component {
         <Route path="/FAQ" component={FAQpage} />
         <Route path="/contact" component={ContactPage} />
         <Route path="/sign-up" component={SignUpForm} />
+        <Route path="/login" component={SignInForm} />
+
 
       </Switch>
       <GlobalStyle />

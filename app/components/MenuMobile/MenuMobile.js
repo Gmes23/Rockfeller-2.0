@@ -15,6 +15,10 @@ const Menu = styled.div`
   }
 `;
 
+const MenuActions = styled.div`
+  background-color: red;
+`;
+
 const MenuIcon = styled.a`
   display: none;
 
@@ -32,6 +36,10 @@ class MobileMenu extends Component {
     return (
         <Menu>
             <MenuIcon className="material-icons">menu</MenuIcon>
+
+            {/* <MenuActions>
+              HI
+            </MenuActions> */}
         </Menu>
         );
   }
