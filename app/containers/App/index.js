@@ -23,6 +23,7 @@ import MobileMenu from 'components/MenuMobile/MenuMobile';
 // Auth Routes 
 import SignUpForm from 'containers/SignUp/index'
 import SignInForm from 'containers/SignIn/index'
+import Auth from 'containers/Auth/Auth'
 
 
 // Actions 
@@ -53,8 +54,8 @@ class App extends Component {
   }
 
   render() {
-    const Auth = this.props.global.isAuth
-    console.log(Auth , ' this auth ')
+    const isAuth = this.props.global.isAuth
+    console.log(isAuth , ' this is auth ')
 
   return (
     <AppWrapper>
@@ -72,8 +73,20 @@ class App extends Component {
         <Route path="/404" component={NotFoundPage} />
         <Route path="/FAQ" component={FAQpage} />
         <Route path="/contact" component={ContactPage} />
-        <Route path="/sign-up" component={SignUpForm} />
-        <Route path="/login" component={SignInForm} />
+
+        {/* Routes for Auth, and redirects if success */}
+        {/* <Route path="/sign-up" component={SignUpForm} />
+        <Route path="/login" component={SignInForm} /> */}
+        <Route exact path="/sign-up" render={() => (
+            <Auth isAuth={isAuth}>
+              <SignUpForm  />
+            </Auth>
+          )} />
+          <Route exact path="/login" render={() => (
+            <Auth  isAuth={isAuth}>
+              <SignInForm/>
+            </Auth >
+          )} />
 
 
       </Switch>

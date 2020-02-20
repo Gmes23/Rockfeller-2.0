@@ -2,13 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-// import map from 'lodash/map';
 import TextFieldGroup from 'components/common/TextFieldGroup';
-
-// import { browserHistory } from 'react-router-dom';
-// import { userSignupRequest, isUserExists } from './actions';
-// import validateInput from '../../../server/middlewares/routes/shared/validation/signupvalidation';
-// import { login } from '../SignIn/authActions';
 import { registerUser } from '../../containers/App/actions';
 import styled from 'styled-components';
 
@@ -28,7 +22,8 @@ const Form = styled.form`
 `;
 
 const InputDiv = styled.div`
-  // display: table-caption;
+font-family: tablet-gothic,sans-serif;
+
 `;
 
 const Button = styled.button`
@@ -177,6 +172,8 @@ class SignUpForm extends React.Component {
               label="Password Confirmation"
               onChange={this.onChange}
               value={this.state.passwordConfirmation}
+              placeholder="password confirmation"
+
               field="passwordConfirmation"
               type="password"
             />
