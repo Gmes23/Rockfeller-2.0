@@ -1,6 +1,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import Img from './Img';
 import Facebook from './facebook-box.png'
@@ -43,13 +44,19 @@ class SocialLinks extends React.Component {
 
           <Wrapper> 
               <IconContainer>
+              <Link to='/contact'>
                 <Img src={Facebook} alt="facebooklink" />
+                </Link>
               </ IconContainer>
               <IconContainer>
+              <Link to='/contact'>
                 <Img src={Twitter} alt="twitterlink" />
+                </Link>
               </ IconContainer>
               <IconContainer>
-                <Img src={Instagram} alt="instagramlink" />
+                <Link to='/contact'>
+                  <Img src={Instagram} alt="instagramlink" />
+                </Link>
               </ IconContainer>
           </Wrapper>
     );

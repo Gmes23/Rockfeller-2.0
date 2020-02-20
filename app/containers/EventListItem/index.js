@@ -248,9 +248,19 @@ export class EventListItem extends React.PureComponent { // eslint-disable-line 
   render() {
     // json from ticketmaster api
     const item = this.props.item;
+    console.log(this.props.item, ' this is item from Eventlist component')
+    console.log(item.hasOwnProperty('priceRanges'));
 
-    console.log(this.props.item, ' this is item from repolist component')
+    if (item.hasOwnProperty('priceRanges') == true ) {
+      var minPrice = parseInt(item.priceRanges[0].min);
+    } else {
+      var minPrice = null
+      return minPrice;
+    }
+    // console.log(item.hasOwnProperty('promoters'));
 
+   
+    
     // converting date json
     var dateObj = item.dates.start.localDate;
     var date = dateObj.split('-')[2];
@@ -258,8 +268,8 @@ export class EventListItem extends React.PureComponent { // eslint-disable-line 
     var month = months[parseInt(dateObj.split('-')[1]) - 1];
 
     // converting currency json 
-    var minPrice = parseInt(item.priceRanges[0].min);
-    var maxPrice = parseInt(item.priceRanges[0].max);
+    // var minPrice = parseInt(item.priceRanges[0].min);
+    // var maxPrice = parseInt(item.priceRanges[0].max);
 
     
     // search threw json array and use the high def picture as the img url src
@@ -269,20 +279,8 @@ export class EventListItem extends React.PureComponent { // eslint-disable-line 
         var artistcover = item.images[i].url;
         }
     }
-
-    // if (item.pleaseNote == undefined ) {
-    //   return undefined
-    // } else {
-    //   return item.pleaseNote
-    // }
-
-  //   var checkObj = function(obj) {
-  //     if(obj != null || obj != undefined) {
-  //         return obj;
-  //     } else {
-  //         return "Unavailable";
-  //     }
-  // };
+    
+ 
  
     // Put together the content of the search
     const content = (
@@ -317,11 +315,11 @@ export class EventListItem extends React.PureComponent { // eslint-disable-line 
                      {item._embedded.attractions[0].name} will be performing at {item._embedded.venues[0].name} for the {item.promoter.name} event
                   </ResultDescription_P>
                   <PleaseNote>
-                     <SpanRed> Please Note: </SpanRed>{item.pleaseNote}
+                     <SpanRed> PLEASE NOTE: </SpanRed>{item.pleaseNote}
                   </PleaseNote>
                   <BuyDiv>
                     <DoorsPrice>
-                      Ticket:  ${minPrice} - ${maxPrice}
+                      Ticket:  ${minPrice} 
                       <br />
                       Doors: {item.dates.start.localTime}
                     </DoorsPrice>

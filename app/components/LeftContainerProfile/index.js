@@ -33,8 +33,6 @@ const Wrapper = styled.div`
   @media screen and (max-width: 780px) {
     padding-right: unset;
   }
-         
-
 `;
 
 const Button = styled(Link)`
