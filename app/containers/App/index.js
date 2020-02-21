@@ -48,63 +48,61 @@ const MobileWrapper = styled.div`
     display: flex;
   }
 `;
+
 class App extends Component {
-  componentDidMount() {
-    this.props.verifyUser()
-  }
+  // componentDidMount() {
+  //   this.props.verifyUser()
+  // }
 
   render() {
     const isAuth = this.props.global.isAuth
-    console.log(isAuth , ' this is auth ')
+    console.log(isAuth, ' this is auth ')
 
-  return (
-    <AppWrapper>
+    return (
+      <AppWrapper>
         <Helmet
-        titleTemplate="Rockfeller - Tickets for your events"
-        defaultTitle="Rockfeller"
-        meta={[
-          { name: 'description', content: 'a ticket online store' },
-        ]}
+          titleTemplate="Rockfeller - Tickets for your events"
+          defaultTitle="Rockfeller"
+          meta={[
+            { name: 'description', content: 'a ticket online store' },
+          ]}
         />
-      <Header />
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/features" component={FeaturePage} />
-        <Route path="/404" component={NotFoundPage} />
-        <Route path="/FAQ" component={FAQpage} />
-        <Route path="/contact" component={ContactPage} />
+        <Header />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/features" component={FeaturePage} />
+          <Route path="/404" component={NotFoundPage} />
+          <Route path="/FAQ" component={FAQpage} />
+          <Route path="/contact" component={ContactPage} />
 
-        {/* Routes for Auth, and redirects if success */}
-        {/* <Route path="/sign-up" component={SignUpForm} />
-        <Route path="/login" component={SignInForm} /> */}
-        <Route exact path="/sign-up" render={() => (
+          {/* Routes for Auth, and redirects if success */}
+          <Route exact path="/sign-up" render={() => (
             <Auth isAuth={isAuth}>
-              <SignUpForm  />
+              <SignUpForm />
             </Auth>
           )} />
           <Route exact path="/login" render={() => (
-            <Auth  isAuth={isAuth}>
-              <SignInForm/>
+            <Auth isAuth={isAuth}>
+              <SignInForm />
             </Auth >
           )} />
 
-
-      </Switch>
-      <GlobalStyle />
-      <MobileWrapper>
-        <MobileMenu />
-        <LeftContainer />
-      </MobileWrapper>
-    </AppWrapper>
-  );
-}
+        </Switch>
+        <GlobalStyle />
+        <MobileWrapper>
+          <MobileMenu />
+          <LeftContainer />
+        </MobileWrapper>
+      </AppWrapper>
+    );
+  }
 }
 const mapStateToProps = state => ({
   ...state
 })
 
-const mapDispatchToProps = dispatch => ({
-  verifyUser: () => dispatch(verifyUser())
-})
+// const mapDispatchToProps = dispatch => ({
+//   verifyUser: () => dispatch(verifyUser())
+// })
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);

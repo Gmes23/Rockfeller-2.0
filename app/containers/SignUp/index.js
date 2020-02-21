@@ -7,23 +7,22 @@ import { registerUser } from '../../containers/App/actions';
 import styled from 'styled-components';
 
 const SignUpPage = styled.div`
+  top: 0px;
+  z-index: 10;
   position: absolute;
   width: 100%;
   height: 100vh;
   background-color: white;
-  left: 20%;
 `;
-
 
 const Form = styled.form`
   position: absolute;
-  top: 20%;
+  top: 30%;
   left: 15vw;
 `;
 
 const InputDiv = styled.div`
-font-family: tablet-gothic,sans-serif;
-
+  font-family: tablet-gothic,sans-serif;
 `;
 
 const Button = styled.button`
@@ -31,16 +30,20 @@ const Button = styled.button`
   height: 50px;
   color: white;
   background-color: red;
+  cursor: pointer;
+  font-family: tablet-gothic,sans-serif;
 `;
 
 const ButtonBack = styled(Link)`
   position: absolute;
   height: 50px;
-  padding-top: 1.5vh;
   width: 100px;
+  padding: 14px;
   text-align: center;
   border: 2px solid red;
   margin-left: 35%;
+  font-family: tablet-gothic,sans-serif;
+  background-color: transparent;
 `;
 
 const ButtonHolder = styled.div`
@@ -147,7 +150,7 @@ class SignUpForm extends React.Component {
               label="email"
               onChange={this.onChange}
               placeholder="email"
-               type="text"
+              type="text"
               // checkUserExists={this.checkUserExists}
               value={this.state.email}
               field="email"
@@ -164,7 +167,7 @@ class SignUpForm extends React.Component {
               field="password"
               type="password"
             />
-          </InputDiv> 
+          </InputDiv>
 
           <InputDiv>
             <TextFieldGroup
@@ -201,4 +204,3 @@ const mapDispatchToProps = dispatch => ({
 
 export default connect(mapDispatchToProps, { registerUser })(SignUpForm);
 
- 

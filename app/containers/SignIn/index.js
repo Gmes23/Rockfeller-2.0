@@ -7,6 +7,8 @@ import TextFieldGroup from 'components/common/TextFieldGroup';
 
 
 const SignInPage = styled.div`
+  top: 0px;
+  z-index: 10;
   position: absolute;
   width: 100%;
   height: 100vh;
@@ -80,21 +82,27 @@ class SignInForm extends Component {
         <SignInPage>
       <Form onSubmit={this.handleFormSubmit}>
       <InputDiv>
-      <input
+      <TextFieldGroup
+          label="username"
           name="username"
           placeholder="username"
           type="text"
           onChange={this.onChange}
           value={this.state.username}
+          field="username"
+
           />
            </InputDiv>
         <InputDiv>
-        <input
+        <TextFieldGroup
+          label="Password"
           name="password"
           placeholder="password"
           type="text"
           onChange={this.onChange}
           value={this.state.password}
+          field="password"
+
           />
           </InputDiv>
           <Button type="submit" value="Log in"> LOGIN </Button>

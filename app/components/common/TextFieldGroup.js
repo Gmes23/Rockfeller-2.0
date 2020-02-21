@@ -3,11 +3,17 @@ import styled from 'styled-components';
 
 const Input = styled.input`
   border-bottom: 2px solid red;
-  margin: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   font-family: tablet-gothic,sans-serif;
   border-left: 0px;
   border-right: 0px;
   border-top: 0px;
+  background-color: transparent;
+  width: 100%;
+  :focus {
+   outline:none;
+  }
 `;
 
 const TextFieldGroup = ({
@@ -19,18 +25,18 @@ const TextFieldGroup = ({
   checkUserExists,
   placeholder
 }) => (
-  <div>
-    <Input
-      onChange={onChange}
-      onBlur={checkUserExists}
-      value={value}
-      type={type}
-      name={field}
-      placeholder={placeholder}
-    />
-    {error && <span>{error}</span>}
-  </div>
-);
+    <div>
+      <Input
+        onChange={onChange}
+        onBlur={checkUserExists}
+        value={value}
+        type={type}
+        name={field}
+        placeholder={placeholder}
+      />
+      {error && <span>{error}</span>}
+    </div>
+  );
 
 
 export default TextFieldGroup;

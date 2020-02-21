@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const My_logo = styled(Link)`
+z-index: 100;
   height: 149px;
   width: 155px;
   text-align: end;

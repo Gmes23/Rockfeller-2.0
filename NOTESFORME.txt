@@ -11,3 +11,5 @@ Searchbar not working due to api not working
 
     -Need to refactor mobile styles
         - 
+
+        logo z-index 100; register pages -z-index 10: 

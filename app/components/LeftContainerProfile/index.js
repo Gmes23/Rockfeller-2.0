@@ -81,8 +81,16 @@ const UserRegisterWrapper = styled.div`
 `;
 
 class LeftContainer extends React.Component { // eslint-disable-line react/prefer-stateless-function
+  constructor() {
+    super()
+    this.state = {
+      username: '',
+      password: ''
+    }
+    this.handleLogoutClick = this.handleLogoutClick.bind(this)
+  }
 
-  logout(e) {
+  handleLogoutClick(e) {
     e.preventDefault();
     this.props.logoutUser(this.state);
   }
@@ -94,7 +102,7 @@ class LeftContainer extends React.Component { // eslint-disable-line react/prefe
     const userLinks = (
       <div>
         <ProfileContainer />
-        <LogOutButton onClick={this.logout.bind(this)}> LOGOUT </LogOutButton>
+        <LogOutButton onClick={this.handleLogoutClick}> LOGOUT </LogOutButton>
       </div>
     );
 
