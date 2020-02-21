@@ -51,6 +51,21 @@ h1 {
  }
 }
 
+// this is mobile menu options
+.expanded-mobile-menu {
+  position: absolute;
+  z-index: 200;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+}
+
+.hidden-mobile-menu {
+  display: none;
+}
+
 a, a:hover, a:active, a:visited {
   text-decoration: none !important;
   cursor: pointer;

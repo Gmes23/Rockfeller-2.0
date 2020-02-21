@@ -3,7 +3,7 @@ import { CHANGE_SEARCH_VALUE } from './constants';
 
 // The initial state of the App
 export const initialState = {
-  searchvalue: 'rock',
+  searchvalue: '',
 };
 
 /* eslint-disable default-case, no-param-reassign */

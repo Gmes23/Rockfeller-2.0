@@ -19,7 +19,7 @@ import GlobalStyle from '../../global-styles';
 
 import LeftContainer from 'components/LeftContainerProfile';
 import MobileMenu from 'components/MenuMobile/MenuMobile';
-
+import MobileMenuExpanded from 'components/MenuMobile/MenuExpanded';
 // Auth Routes 
 import SignUpForm from 'containers/SignUp/index'
 import SignInForm from 'containers/SignIn/index'
@@ -50,13 +50,13 @@ const MobileWrapper = styled.div`
 `;
 
 class App extends Component {
-  // componentDidMount() {
-  //   this.props.verifyUser()
-  // }
+  componentDidMount() {
+    this.props.verifyUser()
+  }
 
   render() {
     const isAuth = this.props.global.isAuth
-    console.log(isAuth, ' this is auth ')
+    console.log(this.props.global.isAuth, ' this is auth ')
 
     return (
       <AppWrapper>
@@ -91,6 +91,7 @@ class App extends Component {
         <GlobalStyle />
         <MobileWrapper>
           <MobileMenu />
+          <MobileMenuExpanded  />
           <LeftContainer />
         </MobileWrapper>
       </AppWrapper>
@@ -101,8 +102,8 @@ const mapStateToProps = state => ({
   ...state
 })
 
-// const mapDispatchToProps = dispatch => ({
-//   verifyUser: () => dispatch(verifyUser())
-// })
+const mapDispatchToProps = dispatch => ({
+  verifyUser: () => dispatch(verifyUser())
+})
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
