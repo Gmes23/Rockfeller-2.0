@@ -3,7 +3,6 @@ import { LOAD_LIST_RESULTS } from 'containers/App/constants';
 import { listresultsLoaded, listresultsLoadingError } from 'containers/App/actions';
 
 import request from 'utils/request';
-// import { makeSelectSearchValue } from 'components/SearchBar/selectors';
 
 import { makeSelectSearchValue } from 'containers/SearchBar/selectors';
 

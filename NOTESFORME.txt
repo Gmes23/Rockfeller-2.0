@@ -1,15 +1,20 @@
 Searchbar not working due to api not working 
 
--change all react router Link with react-router-dom, both reserve the Link keyword
-    and are causing conflict in styled components
-    -search bar is being rendered twice on app container and on header
-
-    I want the search bar on every page but only on the homepge to load events, 
+- NOTE ** change all react router Link with react-router-dom, both reserve the Link keyword
+    
+    - I want the search bar on every page but only on the homepge to load events, 
     that way the user can use the search bar in his profile to search other things 
 
     - react -helmet causes an error if you load components with it in app with reat-router-dom
 
-    -Need to refactor mobile styles
-        - 
+   
 
-        logo z-index 100; register pages -z-index 10
+    - css rules for z-index-
+        --logo z-index 100; register pages -z-index 10
+
+TODO - Mar 3
+    - fix mobile menu,
+    - use user auth at local storage to remember state
+    - fix search bar state 
+    - filter json so 5 show even when json event is not found
+    - fix other route pages after u click on them css
