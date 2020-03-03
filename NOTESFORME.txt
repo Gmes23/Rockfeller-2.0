@@ -18,3 +18,4 @@ TODO - Mar 3
     - fix search bar state 
     - filter json so 5 show even when json event is not found
     - fix other route pages after u click on them css
+    - display register errors on forms with css 

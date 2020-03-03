@@ -50,6 +50,7 @@ const appReducer = (state = initialState, action) =>
         break;
 
       case SET_USER:
+        console.log(draft, 'draft from set user')
         draft.user = action.user;
         draft.isAuth = action.isAuth;
         break;

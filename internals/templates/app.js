@@ -33,9 +33,49 @@ import configureStore from './configureStore';
 // Import i18n messages
 import { translationMessages } from './i18n';
 
+// local storage subscribe functions for user auth using redux
+
+export const loadState = () => {
+  try {
+    const serializedState = localStorage.getItem('state');
+
+    if (serializedState === null) {
+      return undefined;
+    }
+
+    return JSON.parse(serializedState);
+
+  } catch (err) {
+    return undefined;
+  }
+};
+
+export const saveState = (state) => {
+  try {
+    const serializedState = JSON.stringify(state);
+    console.log(state, 'this is saveState')
+    localStorage.setItem('state', serializedState);
+  } catch (err) {
+    // die
+  }
+};
+
+
 // Create redux store with history
-const initialState = {};
+const initialState = {
+  auth: {
+    user: null,
+    isAuth: false,
+  }
+};
 const store = configureStore(initialState, history);
+
+store.subscribe(() => {
+  saveState({
+    auth: store.getState().auth
+  });
+});
+
 const MOUNT_NODE = document.getElementById('app');
 
 const render = messages => {
