@@ -10,7 +10,6 @@ const Input = styled.input`
   border-right: 0px;
   border-top: 0px;
   background-color: transparent;
-  width: 100%;
   :focus {
    outline:none;
   }

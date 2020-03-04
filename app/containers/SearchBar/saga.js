@@ -14,7 +14,7 @@ export function* getListResults() {
   const searchvalue = yield select(makeSelectSearchValue());
   
   // ticketmaster api 
-  const requestURL = `https://app.ticketmaster.com/discovery/v2/events?apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0&keyword=${searchvalue}&size=5`;
+  const requestURL = `https://app.ticketmaster.com/discovery/v2/events?apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0&keyword=${searchvalue}&size=10`;
   // const requestURL = `https://app.ticketmaster.com/discovery/v2/events?apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0&size=5`;.
 
 

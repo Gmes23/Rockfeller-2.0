@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   position: absolute;
-  left: 25%;
-  top: 25%;
+  left: 10vw;
+  top: 35vh;
 `;
 
 const Alink = styled(Link)`

@@ -74,6 +74,7 @@ const LI_list = styled.li`
   list-style-type: none;
   margin-top: 5vh;
   margin-bottom: .5em;
+  text-align: center;
 `
 
 class MobileMenu extends Component {
@@ -92,15 +93,15 @@ class MobileMenu extends Component {
 
   render() {
     const routes = [
-      { link: "/", name: "Program" },
-      { link: "/info", name: "Info" },
-      { link: "/booking", name: "Booking" },
-      { link: "/FAQ", name: "FAQ" },
-      { link: "/contact", name: "Contact" },
+      { link: "/", name: "Program" , key:'1'},
+      { link: "/info", name: "Info", key:'2' },
+      { link: "/booking", name: "Booking", key:'3' },
+      { link: "/FAQ", name: "FAQ", key:'4' },
+      { link: "/contact", name: "Contact", key:'5' },
     ]
 
-    const UILink = ({ link, name }) =>
-      <LI_list>
+    const UILink = ({ link, name, key }) =>
+      <LI_list key={key}>
         <Alink to={link} onClick={this.toggleExpandedMenu}> {name} </Alink>
       </LI_list>
 

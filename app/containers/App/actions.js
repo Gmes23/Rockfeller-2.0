@@ -85,7 +85,7 @@ export const verifyUser = () => dispatch => {
   fetch('/api/user/verify', { credentials: 'include' })
     .then(res => res.json())
     .then(({ user, isAuth }) => dispatch(setUser(user, isAuth)))
-    .catch(err => console.log(err))
+    .catch(err => console.log(err, 'err in verifyUser action'))
 }
 
 export const loginUser = ({ username, password }) => dispatch => {
@@ -99,7 +99,7 @@ export const loginUser = ({ username, password }) => dispatch => {
   })
     .then(res => res.json())
     .then(({ user, isAuth }) => dispatch(setUser(user, isAuth)))
-    .catch(err => console.log(err))
+    .catch(err => console.log(err, 'err in loginUser action'))
 }
 
 export const registerUser = user => dispatch => {
@@ -113,7 +113,7 @@ export const registerUser = user => dispatch => {
   })
   .then(res => res.json())
   .then(({ user, isAuth }) => dispatch(setUser(user, isAuth)))
-  .catch(err => console.log(err))
+  .catch(err => console.log(err, 'err in registerUser action'))
 }
 
 export const logoutUser = user => dispatch => {

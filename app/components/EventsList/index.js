@@ -13,7 +13,7 @@ function EventsList({ loading, error, listresults }) {
 
   if (error !== false) {
     const ErrorComponent = () => (
-      <ListItem item="Something went wrong, please try again!" />
+      <ListItem item="We couldn't find any results, please try again!" />
     );
     return <List component={ErrorComponent} />;
   }

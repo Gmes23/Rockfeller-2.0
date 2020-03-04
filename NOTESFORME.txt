@@ -7,15 +7,9 @@ Searchbar not working due to api not working
 
     - react -helmet causes an error if you load components with it in app with reat-router-dom
 
-   
-
     - css rules for z-index-
-        --logo z-index 100; register pages -z-index 10
+        --logo z-index 100; register pages z-index 10
 
 TODO - Mar 3
-    - fix mobile menu,
+    - create a searchbar error dispatch action and send the result to state, log the error in forms 
     - use user auth at local storage to remember state
-    - fix search bar state 
-    - filter json so 5 show even when json event is not found
-    - fix other route pages after u click on them css
-    - display register errors on forms with css 
