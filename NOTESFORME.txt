@@ -12,4 +12,4 @@ Searchbar not working due to api not working
 
 TODO - Mar 3
     - create a searchbar error dispatch action and send the result to state, log the error in forms 
-    - use user auth at local storage to remember state
+    - use user auth at local storage to remember state.
