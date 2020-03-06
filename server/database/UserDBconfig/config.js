@@ -1,12 +1,12 @@
-require('dotenv').config()
+require('dotenv').config();
 
 const options = {
-  query: (e) => {
-    console.log(e.query, 'this is e.query from config.js')
-  }
-}
+  query: e => {
+    console.log(e.query, 'this is e.query from config.js');
+  },
+};
 
-const pgp = require('pg-promise')(options)
+const pgp = require('pg-promise')(options);
 
 function setDatabase() {
   if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
@@ -15,13 +15,16 @@ function setDatabase() {
       port: 5432,
       host: 'localhost',
       user: 'gm',
-      password: 'password'
-    })
-  } else if (process.env.NODE_ENV === 'production') {
-    return pgp(process.env.DATABASE_URL)
+      password: 'password',
+    });
+  }
+  if (process.env.NODE_ENV === 'production') {
+    return pgp({
+      database: 'test',
+    });
   }
 }
 
-const db = setDatabase()
+const db = setDatabase();
 
-module.exports = db
+module.exports = db;
