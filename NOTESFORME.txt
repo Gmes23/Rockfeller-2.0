@@ -13,3 +13,13 @@ Searchbar not working due to api not working
 TODO - Mar 3
     - create a searchbar error dispatch action and send the result to state, log the error in forms 
     - use user auth at local storage to remember state.
+
+
+PRODUCTION - 
+    packagae.json 
+    "start": "cross-env NODE_ENV=production node server",
+    from NODE_ENV=DEVELOPMENT
+
+    need to add database heroku config,
+    needt to fix padding top search bar
+    need to fix mobile menu css 
