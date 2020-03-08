@@ -22,4 +22,4 @@ PRODUCTION -
 
     need to add database heroku config,
     needt to fix padding top search bar
-    need to fix mobile menu css 
+    need to fix mobile menu css .
